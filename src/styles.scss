@@ -5,7 +5,10 @@
 $primary-default-color: #00a3ef;
 $primary-default-color-hover: #1d5e8f;
 
-a { color: $primary-default-color } 
+a { color: $primary-default-color; }
+a:hover,
+a:active { color: $primary-default-color-hover; }
+
 .input.is-active,
 .input.is-focused,
 .input:active,
@@ -14,6 +17,14 @@ a { color: $primary-default-color }
 .textarea.is-focused,
 .textarea:active,
 .textarea:focus { border-color: $primary-default-color; }
+
+/* Form styles */
+.control.has-icons-left .input:focus~.icon,
+.control.has-icons-left .select:focus~.icon,
+.control.has-icons-right .input:focus~.icon,
+.control.has-icons-right .select:focus~.icon {
+	color: $primary-default-color;
+}
 
 
 /* right arrow used in several places accross ironhub */

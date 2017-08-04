@@ -1,26 +1,25 @@
 <nav *ngIf="this.session.isAuthenticated" class="navbar has-shadow">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item is-tab is-active" [routerLink]="['/ironhackers']">
+      <a class="navbar-item is-tab" [routerLink]="['/ironhackers']" [routerLinkActive]="['is-active']">
         <span>
           <i class="fa fa-user-o" aria-hidden="true"></i>
         </span>
         Ironhackers
       </a>
-      <!-- <a class="navbar-item is-tab " [routerLink]="['/projects']">
+       <a class="navbar-item is-tab " [routerLink]="['/projects']" [routerLinkActive]="['is-active']">
         <span>
           <i class="fa fa-file-text-o" aria-hidden="true"></i>
         </span>
         Projects
       </a>
-      <a class="navbar-item is-tab " [routerLink]="['/bootcamps']">
+      <!-- <a class="navbar-item is-tab " [routerLink]="['/bootcamps']" [routerLinkActive]="['is-active']">
         <span>
           <img [src]="bootcampLogo" alt="bootcamp" />
         </span>
         Bootcamps
-      </a> -->
+      </a>  -->
     </div>
   </div>
 </nav>
- <router-outlet></router-outlet> 
 

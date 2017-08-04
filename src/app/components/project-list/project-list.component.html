@@ -1,0 +1,47 @@
+<section class="section list">
+  <div class="container">
+
+    <div class="project-found" *ngIf="projects.length > 1; else elseBlock">{{ projects.length }} projects found</div>
+    <ng-template #elseBlock>{{ projects.length }} project found</ng-template>
+
+    <div class="tools">
+      <div class="columns">
+        <div *ngFor="let project of projects" class="column is-one-quarter">
+
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img [src]="project.urls.projectImageUrl" alt="Image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <p class="title is-4">{{ project.name }}</p>
+                <p>{{ project.shortDescription }}</p>
+              </div>
+
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">John Smith</p>
+                  <p class="subtitle is-6">@johnsmith</p>
+                </div>
+              </div>
+
+              <footer class="card-footer">
+                <a class="card-footer-item">Save</a>
+                <a class="card-footer-item">Delete</a>
+              </footer>
+            </div>
+          </div>
+
+          <!-- <a class="tool" [routerLink]="['/projects',project._id]" [routerLinkActive]="['is-active']"></a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

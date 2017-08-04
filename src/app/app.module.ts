@@ -10,10 +10,14 @@ import { HeaderSubComponent } from './components/header-sub/header-sub.component
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
+import { IronhackerListComponent } from './components/ironhacker-list/ironhacker-list.component';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 
 // Services
 import { SessionService } from './services/session.service';
 import { RegisterService } from './services/register.service';
+import { IronhackerService } from './services/ironhacker.service';
+import { ProjectService } from './services/project.service';
 
 // Routes
 import { RouterModule } from '@angular/router';
@@ -26,7 +30,9 @@ import { routes } from './app.routing';
     HeaderSubComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    IronhackerListComponent,
+    ProjectListComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,9 @@ import { routes } from './app.routing';
   ],
   providers: [
     SessionService,
-    RegisterService
+    RegisterService,
+    IronhackerService,
+    ProjectService
   ],
   bootstrap: [AppComponent]
 })

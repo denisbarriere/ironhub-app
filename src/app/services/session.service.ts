@@ -1,11 +1,12 @@
-// Angular packages
+// Angular
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Router, CanActivate } from '@angular/router';
 
-// RxJS packages
+// RxJSs
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Rx';
 
 // Environment variables

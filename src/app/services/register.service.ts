@@ -1,12 +1,11 @@
-// Angular packages
+// Angular
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 
-// RxJS packages
+// RxJSs
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs/Rx';
 
 // Services
 import { SessionService } from './session.service';
