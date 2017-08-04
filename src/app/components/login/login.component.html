@@ -8,7 +8,7 @@
         <div class="box">
           <label class="label">Email</label>
           <p class="control has-icons-left">
-            <input class="input" type="text" placeholder="jane@doe.com" name="email" />
+            <input class="input" type="text" placeholder="jane@doe.com" [(ngModel)]="user.email" name="email" />
             <span class="icon is-small is-left">
               <i class="fa fa-envelope"></i>
             </span>
@@ -16,17 +16,17 @@
           <br>
           <label class="label">Password</label>
           <p class="control has-icons-left">
-            <input class="input" type="password" placeholder="Password" name="password" />
+            <input class="input" type="password" placeholder="Password" [(ngModel)]="user.password" name="password" />
             <span class="icon is-small is-left">
               <i class="fa fa-lock"></i>
             </span>
           </p>
           <br>
 
-          <div class="notification is-danger">Error message</div>
+          <div *ngIf="error" class="notification is-danger">{{error}}</div>
 
           <p class="control">
-            <button class="button is-primary">Sign in</button>
+            <button (click)="login()" class="button is-primary is-ironhub">Sign in</button>
           </p>
           <hr>
 

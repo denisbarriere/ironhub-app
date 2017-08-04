@@ -159,7 +159,7 @@
       </div>
 
       <div class="navbar-end">
-        <p *ngIf="this.session.isAuthenticated" class="navbar-item header-username">
+        <p *ngIf="this.session.isAuthenticated" class="navbar-item header-user">
           Hi {{ this.session.user.firstName }}
         </p>
         <a *ngIf="this.session.isAuthenticated" class="navbar-item" [routerLink]="['/profile']">
@@ -171,7 +171,7 @@
         <div class="navbar-item">
           <div class="field is-grouped">
             <p *ngIf="this.session.isAuthenticated" class="control">
-              <a class="button is-primary" (click)="logout()">
+              <a class="button is-primary is-ironhub" (click)="logout()">
                 <span class="icon">
                   <i class="fa fa-sign-out"></i>
                 </span>

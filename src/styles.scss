@@ -1,3 +1,21 @@
+/**
+ * COLOR SCHEMES
+**/
+/* Default */
+$primary-default-color: #00a3ef;
+$primary-default-color-hover: #1d5e8f;
+
+a { color: $primary-default-color } 
+.input.is-active,
+.input.is-focused,
+.input:active,
+.input:focus,
+.textarea.is-active,
+.textarea.is-focused,
+.textarea:active,
+.textarea:focus { border-color: $primary-default-color; }
+
+
 /* right arrow used in several places accross ironhub */
 .carret-right {
 	display: inline-block;
@@ -9,3 +27,12 @@
 	border-top: 4px solid transparent;
 	border-bottom: 4px solid transparent;
 }
+
+.button.is-ironhub:hover,
+.button.is-ironhub:active {
+  background-color: $primary-default-color-hover;
+} 
+
+.button.is-ironhub {
+  background-color: $primary-default-color;
+} 
