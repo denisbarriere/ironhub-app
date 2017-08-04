@@ -1,0 +1,91 @@
+// Angular packages
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import { Router, CanActivate } from '@angular/router';
+
+// RxJS packages
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Rx';
+
+@Injectable()
+export class SessionService {
+
+  // API URL
+  API_BASE_URL: string = 'http://localhost:3000/api/v1.0';
+
+  public user = {};
+  public token = '';
+  public isAuthenticated = false;
+
+  constructor(
+    private http: Http,
+    private router: Router
+  ) { }
+
+  // Function managing the errors from Observables
+  handleError(e) {
+    return Observable.throw(e.json().message);
+  }
+
+  // Angular interface used to enable routes for logged-in users only 
+  canActivate(): Observable<boolean> | boolean {
+    let token = localStorage.getItem('token');
+
+    if (token) {
+      let headers = new Headers({ 'Authorization': `JWT ${token}` });
+      let options = new RequestOptions({ headers: headers });
+
+      return this.http.get(`${this.API_BASE_URL}/token`, options)
+        .map((data) => {
+          if (data) {
+            this.isAuthenticated = true;
+            this.token = token;
+            return true;
+          }
+          return false;
+        })
+        .catch(this.handleError);
+    }
+    else {
+      this.logout();
+      this.router.navigate(['/login']);
+      return false;
+    }
+  }
+
+  // Function handling the login process through the API /login route
+  login(user) {
+    return this.http.post(`${this.API_BASE_URL}/login`, user)
+      .map(res => {
+        let json = res.json();
+        let token = json.token;
+        let user = json.user;
+
+        if (token) {
+          this.token = token;
+          this.user = {
+            _id: user.id,
+            email: user.email,
+            firstName: user.firstName,
+            role: user.role
+          }
+          this.isAuthenticated = true;
+          localStorage.setItem('token', this.token);
+        }
+        
+        return this.isAuthenticated;
+
+      }).catch(this.handleError);
+  }
+
+  // function in charge of the logout
+  logout() {
+    this.token = '';
+    this.user = {}
+    this.isAuthenticated = false;
+    localStorage.removeItem('token');
+
+    this.router.navigate(['/login']);
+  }
+}

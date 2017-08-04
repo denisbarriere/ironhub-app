@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+/* right arrow used in several places accross ironhub */
+.carret-right {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 2px;
+	vertical-align: middle;
+	border-left: 4px dashed;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+}
