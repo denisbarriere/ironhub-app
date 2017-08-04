@@ -25,7 +25,7 @@
     </div>
 
     <div id="navMenuDocumentation" class="navbar-menu">
-      <div class="navbar-start">
+      <div *ngIf="this.session.isAuthenticated" class="navbar-start">
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link  is-active" href="/documentation/overview/start/">
             Docs
@@ -159,7 +159,7 @@
       </div>
 
       <div class="navbar-end">
-        <p *ngIf="this.session.isAuthenticated" class="navbar-item header-user">
+        <p *ngIf="this.session.isAuthenticated && this.session.user.firstName" class="navbar-item header-user">
           Hi {{ this.session.user.firstName }}
         </p>
         <a *ngIf="this.session.isAuthenticated" class="navbar-item" [routerLink]="['/profile']">

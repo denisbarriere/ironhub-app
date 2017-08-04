@@ -1,14 +1,14 @@
 <form class="hero-body">
   <div class="container">
-    <div id="login" class="columns is-vcentered">
+    <div id="signup" class="columns is-vcentered">
       <div class="column is-4 is-offset-4">
         <h1 class="title">
-          Sign in
+          Create account
         </h1>
         <div class="box">
           <label class="label">Email</label>
           <p class="control has-icons-left">
-            <input class="input" type="text" placeholder="jane@doe.com" [(ngModel)]="user.email" name="email" />
+            <input class="input" type="text" placeholder="jane@doe.com" [(ngModel)]="user.email" name="email">
             <span class="icon is-small is-left">
               <i class="fa fa-envelope"></i>
             </span>
@@ -16,7 +16,7 @@
           <br>
           <label class="label">Password</label>
           <p class="control has-icons-left">
-            <input class="input" type="password" placeholder="Password" [(ngModel)]="user.password" name="password" />
+            <input class="input" type="password" placeholder="Password" [(ngModel)]="user.password" name="password">
             <span class="icon is-small is-left">
               <i class="fa fa-lock"></i>
             </span>
@@ -26,13 +26,14 @@
           <div *ngIf="error" class="notification is-danger">{{error}}</div>
 
           <p class="control">
-            <button (click)="login()" class="button is-primary is-ironhub">Sign in</button>
+            <button (click)="signup()" class="button is-primary is-ironhub">Sign up</button>
           </p>
           <hr>
 
           <p class="control">
-            <span>New to IronHub? <a [routerLink]="['/signup']">Create an account <span class="carret-right"></span></a></span>
+            <span>Already have an account? <a [routerLink]="['/login']">Sign in <span class="carret-right"></span></a></span>
           </p>
+
         </div>      
       </div>
     </div>

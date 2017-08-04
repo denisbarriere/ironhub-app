@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { HeaderTopComponent } from './components/header-top/header-top.component';
 import { HeaderSubComponent } from './components/header-sub/header-sub.component';
 import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 
 // Services
 import { SessionService } from './services/session.service';
+import { RegisterService } from './services/register.service';
 
 // Routes
 import { RouterModule } from '@angular/router';
@@ -23,6 +25,7 @@ import { routes } from './app.routing';
     HeaderTopComponent,
     HeaderSubComponent,
     LoginComponent,
+    SignupComponent,
     HomeComponent
   ],
   imports: [
@@ -32,7 +35,8 @@ import { routes } from './app.routing';
     HttpModule
   ],
   providers: [
-    SessionService
+    SessionService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 })

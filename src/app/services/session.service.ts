@@ -8,11 +8,14 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 
+// Environment variables
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class SessionService {
 
   // API URL
-  API_BASE_URL: string = 'http://localhost:3000/api/v1.0';
+  API_BASE_URL = environment.API_BASE_URL;
 
   public user = {};
   public token = '';
@@ -73,7 +76,7 @@ export class SessionService {
           this.isAuthenticated = true;
           localStorage.setItem('token', this.token);
         }
-        
+          
         return this.isAuthenticated;
 
       }).catch(this.handleError);

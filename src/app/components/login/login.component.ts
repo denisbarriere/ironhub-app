@@ -14,9 +14,7 @@ export class LoginComponent implements OnInit {
 
   user: Object = {
 		email: '',
-    password: '',
-    firstName: '',
-    role: '',
+    password: ''
   }
 
   error = null;
@@ -37,7 +35,7 @@ export class LoginComponent implements OnInit {
       },
       (err) => {
         this.error = err;
-      });
+      }
+    );
   }
-
 }
