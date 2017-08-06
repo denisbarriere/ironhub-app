@@ -1,0 +1,9 @@
+<div class="media">
+  <div *ngFor="let contributor of contributors" class="media-left">
+      <figure class="image is-48x48">
+      <a class="contributor" [routerLink]="['/ironhackers',contributor._id]" [routerLinkActive]="['is-active']">
+        <img [src]="contributor.pictureUrl" alt="Image">
+      </a>
+    </figure>  
+  </div> <!-- end: media-left -->
+</div> <!-- end: media -->
