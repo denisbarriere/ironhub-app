@@ -1,47 +1,40 @@
-<section class="section list">
+ <section *ngIf="projects" class="section list">
   <div class="container">
 
-    <div class="project-found" *ngIf="projects.length > 1; else elseBlock">{{ projects.length }} projects found</div>
-    <ng-template #elseBlock>{{ projects.length }} project found</ng-template>
+    <div class="list-header">
+      <!-- Number of project displayed -->
+      <span *ngIf="numberOfProjects > 0">
+        {{ numberOfProjects }} project<span *ngIf="numberOfProjects > 1">s</span> found
+      </span>
+    
+      <!-- Add project button -->
+      <a *ngIf="this.session.isAuthenticated" class="button is-outlined is-pulled-right" [routerLink]="['/projects','new']" [routerLinkActive]="['is-active']">
+        <span class="icon is-small">
+          <i class="fa fa-plus"></i>
+        </span>
+        <span>Add Post</span>
+      </a>
 
-    <div class="tools">
-      <div class="columns">
+    </div>
+  
+    <!-- List of projects found -->
+    <div class="projects">
+
+      <!-- Project grid -->
+      <!-- For each row -->
+      <div *ngFor="let projects of projectsPerRow" class="columns">
+      
+        <!-- For each column -->
         <div *ngFor="let project of projects" class="column is-one-quarter">
 
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img [src]="project.urls.projectImageUrl" alt="Image">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <p class="title is-4">{{ project.name }}</p>
-                <p>{{ project.shortDescription }}</p>
-              </div>
+          <!-- Display the project item -->
+          <app-project-list-item [project]="project"></app-project-list-item>
 
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-48x48">
-                    <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4">John Smith</p>
-                  <p class="subtitle is-6">@johnsmith</p>
-                </div>
-              </div>
+        </div> <!-- end: column -->
 
-              <footer class="card-footer">
-                <a class="card-footer-item">Save</a>
-                <a class="card-footer-item">Delete</a>
-              </footer>
-            </div>
-          </div>
+      </div> <!-- end: columns -->
+      
+    </div> <!-- end: projects -->
 
-          <!-- <a class="tool" [routerLink]="['/projects',project._id]" [routerLinkActive]="['is-active']"></a> -->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </div> <!-- end: container -->
+</section> <!-- end: section -->
