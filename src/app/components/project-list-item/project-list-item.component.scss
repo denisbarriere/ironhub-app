@@ -1,0 +1,11 @@
+// Import global color schemes
+@import '../../../styles.scss';
+
+// Project images
+.project-image img { 
+  object-fit: contain; 
+  background-color: whitesmoke;
+}
+
+.card{ transition: all .2s ease-in-out; }
+.card:hover { box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(0,163,239,.4); } 

@@ -1,0 +1,30 @@
+<!-- Project item  -->
+<div *ngIf="project" class="card">
+  <a class="project" [routerLink]="['/projects', project._id]" [routerLinkActive]="['is-active']">
+    <div class="card-image">
+      <figure class="image is-4by3 project-image">
+        <img [src]="project.urls.projectImageUrl" alt="Image">
+      </figure>
+    </div>
+  </a>
+  <div class="card-content">
+    <div class="content">
+      
+      <!-- Project name -->
+      <a class="tool" [routerLink]="['/projects', project._id]" [routerLinkActive]="['is-active']">
+        <p class="title is-4">{{ project.name }}</p>
+      </a>
+
+      <!-- Project Description -->
+      <p>{{ project.shortDescription }}</p>
+      
+      <!-- Project tags -->
+      <app-project-tags [type]="project.type" [endOfModuleProject]="project.endOfModuleProject"></app-project-tags>
+    
+    </div> <!-- end: content -->
+    
+    <!-- List of project contributors -->
+    <app-project-contributors [contributors]="project.contributors"></app-project-contributors>
+
+  </div> <!-- end: card-content -->
+</div> <!-- end: card -->
