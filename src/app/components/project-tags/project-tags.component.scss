@@ -1,4 +1,22 @@
-// Tag displayed in the bottom right corner of the project image
+// Import global color schemes
+@import '../../../styles.scss';
+
+// UI/UX tag
+.is-uiux { 
+  background-color: $uiux-btn-color;
+ }
+
+// UI/UX tag
+ .is-web-dev { 
+  background-color: $web-dev-btn-color;
+ }
+
+.tag.is-uiux,
+.tag.is-web-dev {
+  color: white;
+ }
+
+ // Tag displayed in the bottom right corner of the project image
 // .card-image { position: relative; }
 
 // .project-tag { 
@@ -7,15 +25,3 @@
 //   bottom: 1rem;
 //   right: 1rem; 
 // }
-
-// UI/UX tag
-.is-uiux { 
-  background-color: red;
-  color: white;
- }
-
-// UI/UX tag
- .is-web-dev { 
-  background-color: pink;
-  color: black;
- }

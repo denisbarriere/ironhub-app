@@ -5,6 +5,12 @@
 $primary-default-color: #00a3ef;
 $primary-default-color-hover: #1d5e8f;
 
+// UI/UX 
+$uiux-btn-color: #d49d05;
+
+// Web Dev
+$web-dev-btn-color: #43a3e6;
+
 a { color: $primary-default-color; }
 a:hover,
 a:active { color: $primary-default-color-hover; }
