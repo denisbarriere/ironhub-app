@@ -1,0 +1,49 @@
+<!-- Wait for the API  -->
+<section *ngIf="project">
+  <div>
+    <!-- Project Image -->
+    <img class="project-image" [src]="project.urls.projectImageUrl" />
+  </div>
+
+  <!-- Project Delete button -->
+  <button (click)="deleteProject()" class="button is-danger is-outlined level-item"><span>Delete</span>
+    <span class="icon is-small">
+      <i class="fa fa-times"></i>
+    </span>
+  </button> 
+
+  <!-- Add contributor button -->
+  <a *ngIf="this.session.isAuthenticated" class="button is-outlined is-pulled-right" (click)="addContributors()">
+    <span class="icon is-small">
+      <i class="fa fa-plus"></i>
+    </span>
+    <span>Add Post</span>
+  </a>
+
+  <!-- Project Name -->
+  <h2>{{ project.name }}</h2>   
+  
+  <!-- Project tags -->
+  <app-project-tags [type]="project.type" [endOfModuleProject]="project.endOfModuleProject"></app-project-tags>
+    
+  <!-- List of project contributors -->
+  <app-project-contributors [contributors]="project.contributors"></app-project-contributors>
+
+  <!-- Project Name -->
+  <p>{{ project.description }}</p>   
+
+  <!-- Links -->
+  <ul>
+    <!-- GitHub -->
+    <li *ngIf="">
+      <a [href]="" targer="_blank"></a>
+    </li>
+    <!--  -->
+    <li *ngIf="">
+      <a [href]="" targer="_blank"></a>
+    </li>
+  </ul>
+
+  <!-- Link to back back to the project list -->
+  <a [routerLink]="['']">Back to list</a>
+</section>
