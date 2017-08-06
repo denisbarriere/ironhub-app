@@ -66,6 +66,13 @@ export class ProjectService {
       .catch(this.handleError);
   }
   
+   // PUT add contributors to a project
+  addProjectContributors(project, contributors) {
+    return this.http.put(`${this.API_BASE_URL}/projects/${project.id}/contributors`, contributors, this.requestOptions())
+      .map((res) => res.json())
+      .catch(this.handleError);
+  }
+
   // DELETE a project
   removeProject(id) {
     return this.http.delete(`${this.API_BASE_URL}/projects/${id}`, this.requestOptions())
