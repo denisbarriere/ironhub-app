@@ -14,6 +14,7 @@ export class HeaderSubComponent implements OnInit {
   bootcampLogo = "/assets/images/course-blue.png";
 
   constructor(
+    // Dependency injections
     private session: SessionService
   ) { }
 

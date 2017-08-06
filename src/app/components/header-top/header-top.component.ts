@@ -14,6 +14,7 @@ export class HeaderTopComponent implements OnInit {
   logoFullPath = '/assets/images/ironhub-logo.png'
 
   constructor(
+    // Dependency injections
     private session: SessionService
   ) { }
 

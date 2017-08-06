@@ -12,14 +12,17 @@ import { RegisterService } from '../../services/register.service';
 })
 export class SignupComponent implements OnInit {
 
+  // Information from the sign form
   user: Object = {
 		email: '',
     password: ''
   }
 
+  // Error message retrieved from the API call
   error = null;
   
   constructor(
+    // Dependency injections
     private register: RegisterService,
     private router: Router
   ) { }

@@ -12,14 +12,17 @@ import { SessionService } from '../../services/session.service';
 })
 export class LoginComponent implements OnInit {
 
+  // Information from the login form
   user: Object = {
 		email: '',
     password: ''
   }
 
+  // Error message retrieved from the API call
   error = null;
 
   constructor(
+    // Dependency injections
     private session: SessionService,
     private router: Router
   ) { }
