@@ -26,7 +26,7 @@ export class ProjectDetailsComponent implements OnInit {
 
   ngOnInit() {
     // Retrieve the param from the URL and call the local 'getProjectDetails' function
-     this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.getProjectDetails(params['id']);
     });
   }
@@ -50,7 +50,7 @@ export class ProjectDetailsComponent implements OnInit {
     if (window.confirm('Are you sure?')) {
       this.projectService.removeProject(this.project._id)
         .subscribe(() => {
-          this.router.navigate(['']);
+          this.router.navigate(['/projects']);
         });
     }
   }
