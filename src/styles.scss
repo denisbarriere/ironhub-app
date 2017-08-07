@@ -36,6 +36,12 @@ a:active { color: $primary-default-color-hover; }
 	border-top: 0;
 }
 
+//  E.G.: ADD PROJECT BUTTON
+.ironhub-button:hover{
+ border-color: $primary-default-color; 
+ color: $primary-default-color;
+}
+
 /* Focus on icons */
 .control.has-icons-left .input:focus~.icon,
 .control.has-icons-left .select:focus~.icon,
