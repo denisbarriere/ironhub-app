@@ -1,30 +1,61 @@
 <!-- Project item  -->
 <div *ngIf="project" class="card">
-  <a class="project" [routerLink]="['/projects', project._id]" [routerLinkActive]="['is-active']">
+  <div class="card-container">
+          
+    <!-- Project Image -->
     <div class="card-image">
-      <figure class="image is-4by3 project-image">
+      <figure *ngIf="project.urls.projectImageUrl" class="image is-4by3 project-image">
         <img [src]="project.urls.projectImageUrl" alt="Image">
       </figure>
-    </div>
-  </a>
-  <div class="card-content">
-    <div class="content">
-      
-      <!-- Project name -->
-      <a class="tool" [routerLink]="['/projects', project._id]" [routerLinkActive]="['is-active']">
-        <p class="title is-4">{{ project.name }}</p>
-      </a>
-
-      <!-- Project Description -->
-      <p>{{ project.shortDescription }}</p>
       
       <!-- Project tags -->
       <app-project-tags [type]="project.type" [endOfModuleProject]="project.endOfModuleProject"></app-project-tags>
+      
+    </div>
     
-    </div> <!-- end: content -->
-    
-    <!-- List of project contributors -->
-    <app-project-contributors [contributors]="project.contributors"></app-project-contributors>
+    <div class="card-content">
+      <div class="content">
+        
+        <!-- Project name -->
+        <p class="title is-4">{{ project.name }}</p>
 
-  </div> <!-- end: card-content -->
+        <!-- List of project contributors -->
+        <app-project-contributors [contributors]="project.contributors"></app-project-contributors>
+
+      </div> <!-- end: content -->
+
+    </div> <!-- end: card-content -->
+  </div> <!-- end: card-container -->
+
+  <div class="project-overlay">
+    <div class="card-content">
+
+      <!-- Actions, based on user -->
+       <div *ngIf="isEditable" class="project-actions"> 
+        <a class="action" [routerLink]="['/project',project._id,'edit']" [routerLinkActive]="['is-active']">
+          <span class="fa-stack fa-2x">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+          </span> 
+        </a>
+        <a class="action" (click)="deleteProject()">
+          <span class="fa-stack fa-2x">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+          </span> 
+        </a>
+      </div> <!-- end: project-actions -->
+
+      <!-- Project short description -->
+      <div class="content">
+        <p>{{ project.shortDescription }}</p>
+      </div> <!-- end: content -->
+    
+    </div> <!-- end: card-content -->
+
+    <footer class="card-footer">
+      <a class="card-footer-item" [routerLink]="['/projects', project._id]" [routerLinkActive]="['is-active']">View Project</a>
+    </footer> <!-- end: card-footer -->
+  </div>
+
 </div> <!-- end: card -->

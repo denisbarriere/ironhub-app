@@ -1,8 +1,99 @@
+// Import global color schemes
+@import '../../../styles.scss';
+
 // Project images
 .project-image img { 
   object-fit: contain; 
   background-color: whitesmoke;
 }
 
-.card{ transition: all .2s ease-in-out; }
-.card:hover { box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(0,163,239,.4); } 
+.card { 
+  transition: all .5s ease-in-out;
+  border-radius: .2rem;
+  box-shadow: 2px 5px 3px rgba(0,163,239,.1), 0 0 0 1px rgba(10,10,10,.1);
+  position: relative;
+  opacity: 1;
+  backface-visibility: hidden;
+}
+
+// .card:hover {
+//   opacity: 0.3;
+// }
+
+// .card:hover .project-overlay {
+//   opacity: 1;
+// }
+
+// Used to position tags
+.card-image { position: relative; }
+
+.title { color: $text-default-color; }
+
+/**
+ * Project overlay Styles
+**/
+// Main block
+.project-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  transition: all 0.5s ease-in-out;
+  color: #fff;
+}
+
+// Display overlay on mouse over
+.card:hover .project-overlay { display: block; }
+
+// Action items
+.project-overlay .action {
+  color: #fff;
+}
+
+.project-overlay .fa-pencil,
+.project-overlay .fa-trash-o { 
+  font-size: 1rem; 
+  color: #666666;
+}
+
+.project-overlay .fa-pencil:hover,
+.project-overlay .fa-trash-o:hover {
+  color: #fff;
+}
+
+.project-overlay .action:hover {
+  color: $primary-default-color;
+}
+
+// Text
+.project-overlay .content { 
+  text-align: center;
+  margin-top: 30%;
+  border: none;
+}
+
+// Footer
+.project-overlay .card-footer {
+  border: none;  
+}
+
+.card-footer a.card-footer-item {
+  position: absolute;
+  bottom: 1rem;
+  width: 84%;
+  text-align: center;
+  color: #666666;
+  background-color: #fff;
+  margin: 0 8%;
+  border-radius: .4rem;
+  font-size: .9rem;
+}
+
+.card-footer a.card-footer-item:hover {
+  background-color: $primary-default-color;
+  color: #fff;
+}
