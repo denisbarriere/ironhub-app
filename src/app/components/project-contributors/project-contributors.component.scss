@@ -1,9 +1,23 @@
+// Import global color schemes
+@import '../../../styles.scss';
+
 // Contributor images
 .contributor img {
+  margin: 1rem 0;
   object-fit: cover;
-  width: 2.6rem;
-  height: 2.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
   border-radius: 50%;
 }
 
-.media-left { margin-right: 0.2rem; }
+// Spacing between contributor profile images
+.media-left { margin-right: 0.4rem; }
+
+// Number of contributor displayed when there are more than 4 contributors
+.more-contributors { 
+  margin: 1rem 0;
+  line-height: 2.4rem; 
+  font-size: .9rem;
+  font-weight: bold;
+  color: $text-default-color;
+}

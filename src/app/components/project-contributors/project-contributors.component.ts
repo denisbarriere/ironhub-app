@@ -8,8 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProjectContributorsComponent implements OnInit {
 
- // Retrieve the relevant information from the parent component
+  // Retrieve the relevant information from the parent component
   @Input() contributors: Array<Object>;
+
+  maxNumberOfContributors = 4;
 
   constructor() { }
 

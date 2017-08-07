@@ -1,9 +1,14 @@
 <div class="media">
-  <div *ngFor="let contributor of contributors" class="media-left">
-      <figure class="image is-48x48">
+  <div *ngFor="let contributor of contributors; let i=index" class="media-left">
+    <figure *ngIf="i < maxNumberOfContributors" class="image">
       <a class="contributor" [routerLink]="['/ironhackers',contributor._id]" [routerLinkActive]="['is-active']">
         <img [src]="contributor.pictureUrl" alt="Image">
       </a>
-    </figure>  
+    </figure> 
   </div> <!-- end: media-left -->
+
+  <div *ngIf="contributors.length > maxNumberOfContributors" class="media-content">
+    <p class="subtitle is-6 more-contributors">+{{ contributors.length - maxNumberOfContributors }} more</p>
+  </div> <!-- end: media-content -->
+
 </div> <!-- end: media -->
