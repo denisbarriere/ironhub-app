@@ -1,4 +1,4 @@
-<form class="hero-body"> 
+<form class="hero-body" #newProjectForm="ngForm" (ngSubmit)="newProjectSubmit(newProjectForm)"> 
   <div class="container">
     <div id="new-project" class="columns is-vcentered">
       <div class="column is-8 is-offset-2">
@@ -9,13 +9,13 @@
           <!-- Project Name -->
           <div class='field is-horizontal'>
             <div class="field-label is-normal">
-              <label class="label">Name</label>
+              <label class="label">Name*</label>
             </div>
 
             <div class="field-body">
               <div class="field">
                 <p class="control is-expanded has-icons-left">
-                  <input class="input" type="text" placeholder="Project Name" [(ngModel)]="project.name" name="name">                             
+                  <input class="input" type="text" placeholder="Project Name" [(ngModel)]="project.name" name="name" minlength="3" required>                             
                   <span class="icon is-small is-left">
                     <i class="fa fa-file-text-o"></i>
                   </span>
@@ -76,30 +76,7 @@
               </div>
             </div>
           </div>
-
-          <!-- Bootcamp -->
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Bootcamp</label>
-            </div>
-
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <div class="select">
-                    <select name='type' [(ngModel)]="project.type">
-                      <option disabled selected value=''>Select a program</option>       
-                      <option value='Web Dev'>Web Development Bootcamp</option>
-                      <option value='UX/UI'>UX/UI Design Bootcamp</option> 
-                      <option value='Web Dev Part-Time'>Web Development Part-Time</option>
-                      <option value='UX/UI Part-Time'>UX/UI Design Part-Time</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
+                    
           <!-- Project GitHub -->
           <div class='field is-horizontal'>
             <div class="field-label is-normal">
@@ -109,7 +86,7 @@
             <div class="field-body">
               <div class="field">
                 <p class="control is-expanded has-icons-left">
-                  <input class="input" type="text" placeholder="GitHub URL" [(ngModel)]="project.gitHub" name="github">                             
+                  <input class="input" type="text" placeholder="GitHub URL" [(ngModel)]="project.urls.gitHub" name="github">                             
                   <span class="icon is-left">
                     <i class="fa fa-github"></i>
                   </span>
@@ -121,13 +98,13 @@
           <!-- Project Product URL -->
           <div class='field is-horizontal'>
             <div class="field-label is-normal">
-              <label class="label">Product</label>
+              <label class="label">Product*</label>
             </div>
 
             <div class="field-body">
               <div class="field">
                 <p class="control is-expanded has-icons-left">
-                  <input class="input" type="text" placeholder="Product URL" [(ngModel)]="project.productUrl" name="product-url">                             
+                  <input class="input" type="text" placeholder="Product URL" [(ngModel)]="project.urls.productUrl" name="product-url" required>                             
                   <span class="icon is-small is-left">
                     <i class="fa fa-link"></i>
                   </span>
@@ -146,7 +123,7 @@
             <div class="field-body">
               <div class="file has-name">
                 <label class="file-label">
-                  <input class="file-input" type="file" name="product-image">
+                  <input class="file-input" type="file" [(ngModel)]="project.urls.projectImageUrl" name="product-image">
                   <span class="file-cta">
                     <span class="file-icon">
                       <i class="fa fa-upload"></i>
@@ -172,7 +149,7 @@
             <div class="field-body">
               <div class="field">
                 <p class="control is-expanded has-icons-left">
-                  <input class="input" type="text" placeholder="Slides Presentation URL" [(ngModel)]="project.slidePresentationUrl" name="slide-presentation">                             
+                  <input class="input" type="text" placeholder="Slides Presentation URL" [(ngModel)]="project.urls.slidePresentationUrl" name="slide-presentation">                             
                   <span class="icon is-small is-left">
                     <i class="fa fa-television"></i>
                   </span>
@@ -191,7 +168,7 @@
             <div class="field-body">
               <div class="field">
                 <p class="control is-expanded has-icons-left">
-                  <input class="input" type="text" placeholder="Video Presentation URL" [(ngModel)]="project.videoPresentationUrl" name="video-presentation">                             
+                  <input class="input" type="text" placeholder="Video Presentation URL" [(ngModel)]="project.urls.videoPresentationUrl" name="video-presentation">                             
                   <span class="icon is-left">
                     <i class="fa fa-youtube-play"></i>
                   </span>
@@ -202,7 +179,7 @@
           </div>
 
           <!-- Project Screenshots -->
-          <div class='field is-horizontal'>
+          <!-- <div class='field is-horizontal'>
             <div class="field-label is-normal">
               <label class="label">Screenshots</label>
             </div>
@@ -210,7 +187,7 @@
             <div class="field-body">
               <div class="file has-name">
                 <label class="file-label">
-                  <input class="file-input" type="file" name="screenshots">
+                  <input class="file-input" [(ngModel)]="project.urls.screenshots.url" type="file" name="screenshots">
                   <span class="file-cta">
                     <span class="file-icon">
                       <i class="fa fa-upload"></i>
@@ -225,10 +202,10 @@
                 </label>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Project Contributors -->
-          <div class='field is-horizontal'>
+          <!-- <div class='field is-horizontal'>
             <div class="field-label is-normal">
               <label class="label">Contributors</label>
             </div>
@@ -245,8 +222,8 @@
                 </p>
               </div>
             </div>
-          </div>
-               
+          </div> -->
+          <div *ngIf="error" class="notification is-danger">{{error}}</div>
           <!-- Submit new project -->
           <div class="field is-horizontal">
             <div class="field-label">
@@ -255,7 +232,7 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <button class="button is-primary is-ironhub" (click)="addNewProject()">
+                  <button class="button is-primary is-ironhub" [disabled]="!newProjectForm.valid">
                     Submit
                   </button>
                   <a class='button is-link' [routerLink]="['/projects']" [routerLinkActive]="['is-active']">Cancel</a>

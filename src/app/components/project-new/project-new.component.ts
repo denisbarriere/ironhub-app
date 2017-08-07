@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 // Services
 import { ProjectService } from '../../services/project.service';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-project-new',
@@ -18,7 +19,6 @@ export class ProjectNewComponent implements OnInit {
     shortDescription: '',
     description: '',
     endOfModuleProject: '',
-    type: '',
     urls: {
       gitHub: '',
       productUrl: '',
@@ -41,6 +41,7 @@ export class ProjectNewComponent implements OnInit {
   constructor(
     // Dependency injection
     private projectService: ProjectService,
+    private session: SessionService,
     private router: Router
   ) { }
 
@@ -48,10 +49,19 @@ export class ProjectNewComponent implements OnInit {
   }
 
   // Function called when the user clicks the submit button
-  addNewProject() {
-    this.projectService.addProject(this.project).subscribe(
-      (data) => {
-        this.router.navigate(['/projects']);
+  newProjectSubmit(form) {
+    
+    // Set the current users as a contributor of the new project, for now (until the contributor management feature is in place)
+    this.project['contributors'].push(this.session.user['_id']);
+
+    // Add the new project
+    this.projectService.addProject(this.project)
+      .subscribe(
+        (data) => {
+          if(data.status === 201) {
+            form.reset();
+            this.router.navigate(['/projects']);
+          }
       },
       (err) => {
         this.error = err;

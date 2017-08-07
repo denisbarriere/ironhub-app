@@ -67,7 +67,9 @@ export class ProjectService {
   // POST add a new project
   addProject(project) {
     return this.http.post(`${this.API_BASE_URL}/projects`, project, this.requestOptions())
-      .map((res) => res.json())
+      .map((res) => { 
+        return { status: res.status, res: res.json } 
+      })
       .catch(this.handleError);
   }
 
