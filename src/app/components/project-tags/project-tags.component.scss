@@ -16,12 +16,9 @@
   color: white;
  }
 
- // Tag displayed in the bottom right corner of the project image
-// .card-image { position: relative; }
-
-// .project-tag { 
-//   z-index: 99999;
-//   position: absolute;
-//   bottom: 1rem;
-//   right: 1rem; 
-// }
+ .project-tag { 
+   position: absolute;
+   z-index: 1;
+   bottom: 1rem;
+   right: 1rem;
+ }

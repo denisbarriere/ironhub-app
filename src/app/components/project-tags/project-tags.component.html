@@ -2,19 +2,19 @@
 <span *ngIf="type || endOfModuleProject">
    <!-- Project "type", displayed on top of the project image. 
         The tag color is different depending on the project number -->
-  <span *ngIf="type === 'Web Dev'" class="tag is-web-dev is-rounded">
+  <!-- <span *ngIf="type === 'Web Dev'" class="tag is-web-dev is-rounded">
     {{ type }}
   </span>
   <span *ngIf="type === 'UI/UX'" class="tag is-uiux is-rounded">
     {{ type }}
-  </span>
+  </span> -->
 
   <!-- Project "number", displayed on top of the project image. 
         The tag color is different depending on the project number -->
-  <span *ngIf="endOfModuleProject === 'Module 1' || endOfModuleProject === 'Module 2'" class="tag is-rounded">
+  <span *ngIf="endOfModuleProject === 'Module 1' || endOfModuleProject === 'Module 2'" class="tag is-white is-rounded project-tag">
     {{ endOfModuleProject }}
   </span>
-  <span *ngIf="endOfModuleProject === 'Final'" class="tag is-warning is-rounded">
+  <span *ngIf="endOfModuleProject === 'Module 3'" class="tag is-warning is-rounded project-tag">
     Final Module
   </span> 
 </span>
