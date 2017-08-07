@@ -4,9 +4,16 @@
           
     <!-- Project Image -->
     <div class="card-image">
-      <figure *ngIf="project.urls.projectImageUrl" class="image is-4by3 project-image">
+      <figure *ngIf="project.urls; else elseBlock" class="image is-4by3 project-image">
         <img [src]="project.urls.projectImageUrl" alt="Image">
       </figure>
+
+      <!-- If no image to display -->
+      <ng-template #elseBlock>
+        <div class="no-project-image" [ngClass]="noImageBgColor">
+          <h2 class="no-project-image__title">{{ project.name }}</h2>
+        </div>
+      </ng-template>
       
       <!-- Project tags -->
       <app-project-tags [type]="project.type" [endOfModuleProject]="project.endOfModuleProject"></app-project-tags>

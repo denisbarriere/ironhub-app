@@ -20,6 +20,8 @@ export class ProjectListItemComponent implements OnInit {
   @Output() onProjectDelete = new EventEmitter<string>();
 
   isEditable: boolean; // Used to know if the actions (edit, delete) should be displayed
+  gradiantList: Array<String> = ['grad-from-pink-to-orange','grad-from-purple-to-pink', 'grad-from-blue-to-dark-blue','grad-from-light-blue-to-blue', 'grad-from-green-to-dark-green', 'red', 'purple'];
+  noImageBgColor: String = this.getRandomGradiant(); // Get a random gradiant when no project images are found
 
   constructor(
     private router: Router,
@@ -39,6 +41,12 @@ export class ProjectListItemComponent implements OnInit {
     if(this.session.user['role'] === 'ADMIN' || isContributor) { 
       this.isEditable = true;
     }
+  }
+
+// Get a random gradiant from a list of gradiant
+  getRandomGradiant() { 
+    let randomIndex = Math.floor(Math.random() * this.gradiantList.length);
+    return this.gradiantList[randomIndex];
   }
 
   // Delete the current project

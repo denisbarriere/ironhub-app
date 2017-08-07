@@ -7,6 +7,72 @@
   background-color: whitesmoke;
 }
 
+.no-project-image {
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  padding-top: 75%;
+}
+.no-project-image__title {
+  position: absolute;
+  top: calc(50% - 1.6rem);
+  width: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+/* Background colors randomly used when no project image is set */
+.grad-from-pink-to-orange {
+  background: #fd4289; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #fd4289, #ff9c00); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #fd4289, #ff9c00); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #fd4289, #ff9c00); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #fd4289, #ff9c00); /* Standard syntax */
+}
+
+.grad-from-purple-to-pink {
+  background: #ae5abc; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #ae5abc, #f72199); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #ae5abc, #f72199); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #ae5abc, #f72199); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #ae5abc, #f72199); /* Standard syntax */
+}
+
+.grad-from-blue-to-dark-blue {
+  background: #00d3dc; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #00d3dc, #1d5e8f); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #00d3dc, #1d5e8f); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #00d3dc, #1d5e8f); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #00d3dc, #1d5e8f); /* Standard syntax */
+}
+
+.grad-from-light-blue-to-blue {
+  background: #00d3dc; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #00d3dc, #00a3ef); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #00d3dc, #00a3ef); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #00d3dc, #00a3ef); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #00d3dc, #00a3ef); /* Standard syntax */
+}
+
+.grad-from-green-to-dark-green {
+  background: #fdf431; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #fdf431, #88b211); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #fdf431, #88b211); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #fdf431, #88b211); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #fdf431, #88b211); /* Standard syntax */
+}
+
+.purple {
+  background-color: #a8afff
+}
+
+.red {
+  background-color: #ff0061;
+}
+/* End: Background colors randomly used when no project image is set */
+
 .card { 
   transition: all .5s ease-in-out;
   border-radius: .2rem;
