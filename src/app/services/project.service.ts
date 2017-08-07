@@ -32,10 +32,22 @@ export class ProjectService {
   }
 
   // GET the list of all projects
-  getProjectList() {
-    return this.http.get(`${this.API_BASE_URL}/projects`, this.requestOptions())
+  getProjectList(limit?: number, offset?: number) {
+    
+    // If there is a limit and offset, then call the API with these parameters to limit the number of projects in the response
+    if (limit >= 0 && offset >= 0) {
+       
+      return this.http.get(`${this.API_BASE_URL}/projects?limit=${limit}&offset=${offset}`, this.requestOptions())
       .map((res) => res.json())
       .catch(this.handleError);
+
+     } else {
+
+      return this.http.get(`${this.API_BASE_URL}/projects`, this.requestOptions())
+        .map((res) => res.json())
+        .catch(this.handleError);
+
+    }
   }
 
   // GET the list of all projects for a project
