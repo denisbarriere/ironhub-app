@@ -1,9 +1,11 @@
  <section *ngIf="projects" class="section list">
   <div class="container">
 
+    <div *ngIf="isLoading" class="loading">Hey I am loading...</div>
+
     <div class="list-header">
       <!-- Number of project displayed -->
-      <span *ngIf="numberOfProjects > 0">
+      <span *ngIf="numberOfProjects > 0; else elseBlock">
         {{ numberOfProjects }} project<span *ngIf="numberOfProjects > 1">s</span> found
       </span>
     
@@ -12,29 +14,29 @@
         <span class="icon is-small">
           <i class="fa fa-plus"></i>
         </span>
-        <span>Add Post</span>
+        <span>Add Project</span>
       </a>
 
     </div>
   
     <!-- List of projects found -->
-    <div class="projects">
+    <div *ngIf="numberOfProjects > 0" class="projects columns is-multiline">
 
       <!-- Project grid -->
-      <!-- For each row -->
-      <div *ngFor="let projects of projectsPerRow" class="columns">
+      <div *ngFor="let project of projects; let currentIndex = index;" class="column is-one-quarter">
+
+          <!-- Display the current project -->
+          <app-project-list-item (onProjectDelete)="deleteProject($event)" [project]="project"></app-project-list-item>
       
-        <!-- For each column -->
-        <div *ngFor="let project of projects" class="column is-one-quarter">
+      </div> <!-- end: column  -->
 
-          <!-- Display the project item -->
-          <app-project-list-item [project]="project"></app-project-list-item>
-
-        </div> <!-- end: column -->
-
-      </div> <!-- end: columns -->
-      
-    </div> <!-- end: projects -->
+    </div> <!-- end: columns -->
 
   </div> <!-- end: container -->
 </section> <!-- end: section -->
+
+
+<ng-template #elseBlock>
+  <!-- If no projects to display -->
+  No project has been found. Please add a new one or try again later!
+</ng-template>
