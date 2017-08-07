@@ -15,9 +15,10 @@ import { SessionService } from '../../services/session.service';
 })
 export class ProjectListComponent implements OnInit {
 
+  searchKeywords: string; // Used to retrieve the keywords to filter the list
   projects = [{}]; // Retrive the projects from the API
   numberOfProjects: number = 0; // Total number of projects
-  limit: number = 2; // Number of project loaded
+  limit: number = 16; // Number of project loaded
   offset: number = 0; // Offset used for the lazy load
   isPageLoading = true; // Used to show the loading animation on page load
   isLazyLoading = false; // Used to show the loading animation on lazy load
@@ -29,6 +30,7 @@ export class ProjectListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // this.noImageBgColor = 'grad-pink-orange'
     this.project.getProjectList(this.limit, this.offset)
       .subscribe((projects) => {
         this.projects = projects;

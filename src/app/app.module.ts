@@ -28,6 +28,9 @@ import { ProjectNewComponent } from './components/project-new/project-new.compon
 import { ProjectContributorsComponent } from './components/project-contributors/project-contributors.component';
 import { ProjectTagsComponent } from './components/project-tags/project-tags.component';
 
+// Pipes
+import { ProjectFilterPipe } from './pipes/project-filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +45,8 @@ import { ProjectTagsComponent } from './components/project-tags/project-tags.com
     ProjectDetailsComponent,
     ProjectNewComponent,
     ProjectContributorsComponent,
-    ProjectTagsComponent
+    ProjectTagsComponent,
+    ProjectFilterPipe
   ],
   imports: [
     BrowserModule,
