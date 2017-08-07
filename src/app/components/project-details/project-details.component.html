@@ -17,7 +17,7 @@
     <span class="icon is-small">
       <i class="fa fa-plus"></i>
     </span>
-    <span>Add Post</span>
+    <span>Add Contributors</span>
   </a>
 
   <!-- Project Name -->
@@ -35,15 +35,32 @@
   <!-- Links -->
   <ul>
     <!-- GitHub -->
-    <li *ngIf="">
-      <a [href]="" targer="_blank"></a>
+    <li *ngIf="project.urls.gitHub">
+      <a [href]="project.urls.gitHub" target="_blank">GitHub</a>
+    </li>
+    <!-- Product URL -->
+    <li *ngIf="project.urls.productUrl">
+      <a [href]="project.urls.productUrl" target="_blank">Try it</a>
     </li>
     <!--  -->
-    <li *ngIf="">
-      <a [href]="" targer="_blank"></a>
+    <li *ngIf="project.urls.slidePresentationUrl">
+      <a [href]="project.urls.slidePresentationUrl" target="_blank">Slides</a>
+    </li>
+    <!--  -->
+    <li *ngIf="project.urls.videoPresentationUrl">
+      <a [href]="project.urls.videoPresentationUrl" target="_blank">Video</a>
+    </li>
+    <!--  -->
+    <li *ngIf="project.urls.screenshots">
+      <div *ngFor="let screenshot of project.urls.screenshots">
+        <img [src]="screenshot.url" alt="screenshot.title"/>
+      </div>
     </li>
   </ul>
 
+  <!-- Edit button -->
+  <a [routerLink]="['/project',project._id,'edit']">Edit</a>
+
   <!-- Link to back back to the project list -->
-  <a [routerLink]="['']">Back to list</a>
+  <a [routerLink]="['/projects']">Back to list</a>
 </section>
