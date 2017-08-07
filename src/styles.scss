@@ -15,6 +15,7 @@ a { color: $primary-default-color; }
 a:hover,
 a:active { color: $primary-default-color-hover; }
 
+// FORM styles on focus
 .input.is-active,
 .input.is-focused,
 .input:active,
@@ -22,16 +23,26 @@ a:active { color: $primary-default-color-hover; }
 .textarea.is-active,
 .textarea.is-focused,
 .textarea:active,
-.textarea:focus { border-color: $primary-default-color; }
+.textarea:focus,
+.select select.is-active,
+.select select.is-focused,
+.select select:active,
+.select select:focus { border-color: $primary-default-color; }
 
-/* Form styles */
+// Drop down arrow
+.select:not(.is-multiple)::after {
+	border: 1px solid $primary-default-color;
+	border-right: 0;
+	border-top: 0;
+}
+
+/* Focus on icons */
 .control.has-icons-left .input:focus~.icon,
 .control.has-icons-left .select:focus~.icon,
 .control.has-icons-right .input:focus~.icon,
 .control.has-icons-right .select:focus~.icon {
 	color: $primary-default-color;
 }
-
 
 /* right arrow used in several places accross ironhub */
 .carret-right {
@@ -53,3 +64,5 @@ a:active { color: $primary-default-color-hover; }
 .button.is-ironhub {
   background-color: $primary-default-color;
 } 
+
+$text-default-color: #666666;

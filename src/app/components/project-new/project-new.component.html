@@ -1,3 +1,270 @@
-<p>
-  project-new works!
-</p>
+<form class="hero-body"> 
+  <div class="container">
+    <div id="new-project" class="columns is-vcentered">
+      <div class="column is-8 is-offset-2">
+        <h1 class="title">
+          New Project
+        </h1>
+        <div class="box">
+          <!-- Project Name -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class="label">Name</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input class="input" type="text" placeholder="Project Name" [(ngModel)]="project.name" name="name">                             
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-file-text-o"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project Short Description -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class="label">Short Desc.</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <input class="input" type="text" placeholder="Project Short Description" [(ngModel)]="project.shortDescription" name="short-description">                             
+                </p>
+                <p class="help">displayed on listing page</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Description -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class='label' required>Description</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <p class='control'>
+                  <textarea class='textarea' placeholder='Project Description' [(ngModel)]="project.description" name='description'></textarea>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project "Number" -->
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Milestone</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <div class="select">
+                    <select name='milestone' [(ngModel)]="project.endOfModuleProject">
+                      <option disabled selected value=''>End of: </option>       
+                      <option value='Module 1'>Module 1</option>
+                      <option value='Module 2'>Module 2</option>
+                      <option value='Module 3'>Module 3</option> 
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bootcamp -->
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Bootcamp</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <div class="select">
+                    <select name='type' [(ngModel)]="project.type">
+                      <option disabled selected value=''>Select a program</option>       
+                      <option value='Web Dev'>Web Development Bootcamp</option>
+                      <option value='UX/UI'>UX/UI Design Bootcamp</option> 
+                      <option value='Web Dev Part-Time'>Web Development Part-Time</option>
+                      <option value='UX/UI Part-Time'>UX/UI Design Part-Time</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project GitHub -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class="label">GitHub</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input class="input" type="text" placeholder="GitHub URL" [(ngModel)]="project.gitHub" name="github">                             
+                  <span class="icon is-left">
+                    <i class="fa fa-github"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Product URL -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class="label">Product</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input class="input" type="text" placeholder="Product URL" [(ngModel)]="project.productUrl" name="product-url">                             
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-link"></i>
+                  </span>
+                </p>
+                <p class="help">to see the project live</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- project Image Url -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class="label">Product Image</label>
+            </div>
+
+            <div class="field-body">
+              <div class="file has-name">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="product-image">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fa fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Choose a file…
+                    </span>
+                  </span>
+                  <span class="file-name">
+                    
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Slides Presentation -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class="label">Sildes</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input class="input" type="text" placeholder="Slides Presentation URL" [(ngModel)]="project.slidePresentationUrl" name="slide-presentation">                             
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-television"></i>
+                  </span>
+                </p>
+                <p class="help">to see the presentation of the project</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Video Presentation -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class="label">Video</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input class="input" type="text" placeholder="Video Presentation URL" [(ngModel)]="project.videoPresentationUrl" name="video-presentation">                             
+                  <span class="icon is-left">
+                    <i class="fa fa-youtube-play"></i>
+                  </span>
+                </p>
+                <p class="help">to see the video preview of the project</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Screenshots -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class="label">Screenshots</label>
+            </div>
+
+            <div class="field-body">
+              <div class="file has-name">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="screenshots">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fa fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Choose a file…
+                    </span>
+                  </span>
+                  <span class="file-name">
+                    
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Contributors -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class="label">Contributors</label>
+            </div>
+            
+            <div class="field-body">
+              <div class="field has-addons">
+                <p class="control is-expanded">
+                  <input class="input" type="text" placeholder="" [(ngModel)]="project.collaborators" name="name">                             
+                </p>
+                <p class="control">
+                  <a class="button is-light">
+                    Add Contributor
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+               
+          <!-- Submit new project -->
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <!-- Left empty for spacing -->
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <button class="button is-primary is-ironhub" (click)="addNewProject()">
+                    Submit
+                  </button>
+                  <a class='button is-link' [routerLink]="['/projects']" [routerLinkActive]="['is-active']">Cancel</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</form>
