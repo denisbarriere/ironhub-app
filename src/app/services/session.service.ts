@@ -43,8 +43,16 @@ export class SessionService {
       return this.http.get(`${this.API_BASE_URL}/token`, options)
         .map((data) => {
           if (data) {
+            let dataJson = data.json();
+
             this.isAuthenticated = true;
             this.token = token;
+            this.user = {
+              _id: dataJson.user._id,
+              email: dataJson.user.email,
+              firstName: dataJson.user.firstName,
+              role: dataJson.user.role
+            }
             return true;
           }
           return false;
