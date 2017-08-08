@@ -56,7 +56,7 @@
 </section>
 
 <!-- Project main information -->
-<div class="container">
+<div class="container is-fluid">
   
   <!-- Wait for the API  -->
   <section class="section" *ngIf="project">
@@ -153,10 +153,11 @@
           <div *ngIf="project.hashtags" class="content">
             <!-- Project Hash tags -->
             <ul class="project-hashtags">
-              <li *ngFor="let hashtag of project.hashtags">
+              <li class="hashtag" *ngFor="let hashtag of project.hashtags">
                 <a href="#">{{hashtag}}</a>
               </li>
             </ul>
+            <!-- <p>&nbsp;</p> -->
           </div>
           <!-- Screenshots -->
           <!-- <div *ngIf="project.urls.screenshots">

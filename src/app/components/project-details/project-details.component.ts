@@ -71,7 +71,6 @@ export class ProjectDetailsComponent implements OnInit {
               break;
           }
         }
-console.log(project.hashtags);
       });
   }
 

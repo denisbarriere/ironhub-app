@@ -16,9 +16,11 @@ export class ProjectNewComponent implements OnInit {
   // Information from the form
   project: Object = {
 		name: '',
+    tagline: '',
     shortDescription: '',
     description: '',
     endOfModuleProject: '',
+    hashtags: [],
     urls: {
       gitHub: '',
       productUrl: '',
@@ -49,7 +51,7 @@ export class ProjectNewComponent implements OnInit {
   }
 
   // Function called when the user clicks the submit button
-  newProjectSubmit(form) {
+  projectSubmit(form) {
     
     // Set the current users as a contributor of the new project, for now (until the contributor management feature is in place)
     this.project['contributors'].push(this.session.user['_id']);

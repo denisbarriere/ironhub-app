@@ -62,6 +62,7 @@
   margin: 0;
   margin-top: 1rem;
   list-style: none;
+  min-height: 1.6rem;
  }
 
  .project-hashtags li {
@@ -70,7 +71,6 @@
    margin-left: .4rem;
  }
 .project-hashtags li:first-child { margin-left: 0; }
-
 
 /**
  * MEDIA QUERIES
