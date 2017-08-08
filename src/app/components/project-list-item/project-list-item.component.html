@@ -16,7 +16,7 @@
       </ng-template>
       
       <!-- Project tags -->
-      <app-project-tags [type]="project.type" [endOfModuleProject]="project.endOfModuleProject"></app-project-tags>
+      <app-project-tags [endOfModuleProject]="project.endOfModuleProject" [absolutePosition]="absolutePosition"></app-project-tags>
       
     </div>
     
@@ -27,7 +27,7 @@
         <p class="title is-4">{{ project.name }}</p>
 
         <!-- List of project contributors -->
-        <app-project-contributors [contributors]="project.contributors"></app-project-contributors>
+        <app-project-contributors [contributors]="project.contributors" [fullList]="fullList"></app-project-contributors>
 
       </div> <!-- end: content -->
 
@@ -38,8 +38,8 @@
     <div class="card-content">
 
       <!-- Actions, based on user -->
-       <div *ngIf="isEditable" class="project-actions"> 
-        <a class="action" [routerLink]="['/project',project._id,'edit']" [routerLinkActive]="['is-active']">
+      <div *ngIf="isEditable" class="project-actions"> 
+        <a class="action" [routerLink]="['/projects',project._id,'edit']" [routerLinkActive]="['is-active']">
           <span class="fa-stack fa-2x">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>

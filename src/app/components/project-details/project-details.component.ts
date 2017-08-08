@@ -6,6 +6,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
 import { SessionService } from '../../services/session.service';
 
+// Javacript libraries
+import * as _ from 'lodash';
+
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
@@ -13,8 +16,15 @@ import { SessionService } from '../../services/session.service';
 })
 export class ProjectDetailsComponent implements OnInit {
 
-  // Project details retrieved from the API call
-  project: any;
+  // Local component variables
+  project: any; // Project details retrieved from the API call
+  isEditable: boolean; // Used to know if the actions (edit, delete) should be displayed
+  fullList: boolean = true; // Used by the project-contributors component
+  absolutePosition: boolean = false; // Used for positioning the tag component
+  gradiantList: Array<String> = ['grad-from-pink-to-orange','grad-from-purple-to-pink', 'grad-from-red-to-pink'];
+  heroBgColor: String = this.getRandomGradiant(); // Get a random gradiant when no project images are found
+  bootcampProgress: number; // Bootcamp progress in percent, based on which 
+
 
   constructor(
     // Dependency injections
@@ -36,6 +46,32 @@ export class ProjectDetailsComponent implements OnInit {
     this.projectService.getProject(id)
       .subscribe((project) => {
         this.project = project;
+
+        // Check if the logged-in user is an admin or a contributor of the project
+        let isContributor = _.findKey(this.project.contributors, (contributor) => {
+          return contributor['_id'] === this.session.user['_id']
+        });
+    
+        // If so, the logged-in user can edit
+        if(this.session.user['role'] === 'ADMIN' || isContributor) { 
+          this.isEditable = true;
+        }
+
+        // Calculate the bootcamp progress
+        if (this.project.endOfModuleProject) {
+          switch (this.project.endOfModuleProject) {
+            case 'Module 1':
+              this.bootcampProgress = 33;
+              break;
+            case 'Module 2':          
+              this.bootcampProgress = 66;
+              break;
+            case 'Module 3':
+              this.bootcampProgress = 100;
+              break;
+          }
+        }
+console.log(project.hashtags);
       });
   }
 
@@ -54,4 +90,13 @@ export class ProjectDetailsComponent implements OnInit {
         });
     }
   }
+
+  // Get a random gradiant from a list of gradiant
+  getRandomGradiant() { 
+    let randomIndex = Math.floor(Math.random() * this.gradiantList.length);
+    return this.gradiantList[randomIndex];
+  }
+
+  
+
 }

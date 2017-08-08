@@ -1,66 +1,174 @@
-<!-- Wait for the API  -->
-<section *ngIf="project">
-  <div>
-    <!-- Project Image -->
-    <img class="project-image" [src]="project.urls.projectImageUrl" />
+
+<section *ngIf="project" class="hero is-medium is-bold" [ngClass]="heroBgColor">
+  <div class="hero-body">
+    <div class="container is-fluid">
+      <!-- Project Name -->
+      <h1 *ngIf="project.name" class="title">
+        {{ project.name }}
+      </h1>
+      <h2 *ngIf="project.shortDescription" class="subtitle">
+        <!-- Project Short Description -->
+        <p>{{ project.shortDescription }}</p>   
+      </h2>
+
+      <!-- GitHub -->
+      <span *ngIf="project.urls.gitHub" class="field">
+        <a [href]="project.urls.gitHub" target="_blank" class="button is-info is-inverted is-outlined">
+          <span class="icon">
+            <i class="fa fa-github fa-1"></i>
+          </span>
+          <span>GitHub</span>
+        </a>
+      </span>
+
+      <!-- Product URL -->
+      <span *ngIf="project.urls.productUrl" class="field">
+        <a [href]="project.urls.productUrl" target="_blank" class="button is-info is-inverted is-outlined">
+          <span class="icon">
+            <i class="fa fa-cloud fa-1"></i>
+          </span>
+          <span>Try It</span>
+        </a>
+      </span>
+
+      <!-- Slide Presentation -->
+      <span *ngIf="project.urls.slidePresentationUrl" class="field">
+        <a [href]="project.urls.slidePresentationUrl" target="_blank" class="button is-info is-inverted is-outlined">
+          <span class="icon">
+            <i class="fa fa-television fa-1"></i>
+          </span>
+          <span>Slides</span>
+        </a>
+      </span>
+      
+      <!-- Video Presentation -->
+      <span *ngIf="project.urls.videoPresentationUrl" class="field">
+        <a [href]="project.urls.videoPresentationUrl" target="_blank" class="button is-info is-inverted is-outlined">
+          <span class="icon">
+            <i class="fa fa-youtube-play fa-1"></i>
+          </span>
+          <span>Video</span>
+        </a>
+      </span>
+
+    </div>
   </div>
-
-  <!-- Project Delete button -->
-  <button (click)="deleteProject()" class="button is-danger is-outlined level-item"><span>Delete</span>
-    <span class="icon is-small">
-      <i class="fa fa-times"></i>
-    </span>
-  </button> 
-
-  <!-- Add contributor button -->
-  <a *ngIf="this.session.isAuthenticated" class="button is-outlined is-pulled-right" (click)="addContributors()">
-    <span class="icon is-small">
-      <i class="fa fa-plus"></i>
-    </span>
-    <span>Add Contributors</span>
-  </a>
-
-  <!-- Project Name -->
-  <h2>{{ project.name }}</h2>   
-  
-  <!-- Project tags -->
-  <app-project-tags [type]="project.type" [endOfModuleProject]="project.endOfModuleProject"></app-project-tags>
-    
-  <!-- List of project contributors -->
-  <app-project-contributors [contributors]="project.contributors"></app-project-contributors>
-
-  <!-- Project Name -->
-  <p>{{ project.description }}</p>   
-
-  <!-- Links -->
-  <ul>
-    <!-- GitHub -->
-    <li *ngIf="project.urls.gitHub">
-      <a [href]="project.urls.gitHub" target="_blank">GitHub</a>
-    </li>
-    <!-- Product URL -->
-    <li *ngIf="project.urls.productUrl">
-      <a [href]="project.urls.productUrl" target="_blank">Try it</a>
-    </li>
-    <!--  -->
-    <li *ngIf="project.urls.slidePresentationUrl">
-      <a [href]="project.urls.slidePresentationUrl" target="_blank">Slides</a>
-    </li>
-    <!--  -->
-    <li *ngIf="project.urls.videoPresentationUrl">
-      <a [href]="project.urls.videoPresentationUrl" target="_blank">Video</a>
-    </li>
-    <!--  -->
-    <li *ngIf="project.urls.screenshots">
-      <div *ngFor="let screenshot of project.urls.screenshots">
-        <img [src]="screenshot.url" alt="screenshot.title"/>
-      </div>
-    </li>
-  </ul>
-
-  <!-- Edit button -->
-  <a [routerLink]="['/project',project._id,'edit']">Edit</a>
-
-  <!-- Link to back back to the project list -->
-  <a [routerLink]="['/projects']">Back to list</a>
 </section>
+
+<!-- Project main information -->
+<div class="container">
+  
+  <!-- Wait for the API  -->
+  <section class="section" *ngIf="project">
+
+    <div class="columns">
+
+      <!-- Left panel -->
+      <div class="column is-half">
+
+        <div class="columns">
+          <!-- Left icons -->
+          <div class="column is-narrow">
+
+            <!-- Action buttons -->
+            <div class="content">
+              
+              <!-- Link to back back to the project list -->
+              <a class="action" [routerLink]="['/projects']">
+                <span class="fa-stack fa-2x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-arrow-left fa-stack-1x fa-inverse"></i>
+                </span> 
+              </a>
+              
+              <a *ngIf="isEditable" class="action" [routerLink]="['/projects',project._id,'edit']">
+                <!-- Edit button -->
+                <span class="fa-stack fa-2x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                </span> 
+              </a>
+                
+              <a *ngIf="isEditable" class="action" (click)="deleteProject()">
+                <!-- Project Delete button -->
+                <span class="fa-stack fa-2x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                </span> 
+              </a>
+            
+            </div> <!-- end: content -->
+        
+          </div> <!-- end: is-narrow -->
+
+          <!-- Project Info -->
+          <div class="column">
+          
+            <!-- Project Short Description -->
+            <p class="title ironhub-project-tagline">{{ project.tagLine }}</p> 
+
+            <hr>
+
+            <!-- Project Description -->
+            <p>{{ project.description }}</p>   
+
+          </div>
+  
+        </div>
+      </div>
+  
+       <!-- Right panel -->
+      <div class="column is-half project-image-panel">
+       
+        <div class="content">
+          <!-- Project Image and screenshot sliders -->
+          <div *ngIf="project.urls.projectImageUrl" class="hero project-image">
+            <img class="mySlides" [src]="project.urls.projectImageUrl">
+            <!-- <span *ngIf="project.urls.screenshots">
+              <img *ngFor="let screenshot of project.urls.screenshots" class="mySlides" [src]="screenshot.url" alt="screenshot.title">
+            </span> -->
+          </div>
+
+          <!-- List of project contributors -->
+          <app-project-contributors *ngIf="project.contributors" [contributors]="project.contributors" [fullList]="fullList"></app-project-contributors>
+
+          <!-- Project Proess in bootcamp -->
+          <div *ngIf="project.endOfModuleProject" class="box">
+            <article class="media">
+              <div class="media-content">
+                <p>
+                  <strong>Bootcamp Progress</strong>
+                </p>
+                <p>
+                  <span class="progress-percent">{{bootcampProgress}}%</span>
+                  <progress class="progress is-small" [value]="bootcampProgress" max="100">{{bootcampProgress}}%</progress>
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Project tags -->
+          <app-project-tags *ngIf="project.endOfModuleProject" [endOfModuleProject]="project.endOfModuleProject" [absolutePosition]="absolutePosition"></app-project-tags> 
+
+          <div *ngIf="project.hashtags" class="content">
+            <!-- Project Hash tags -->
+            <ul class="project-hashtags">
+              <li *ngFor="let hashtag of project.hashtags">
+                <a href="#">{{hashtag}}</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Screenshots -->
+          <!-- <div *ngIf="project.urls.screenshots">
+            <div *ngFor="let screenshot of project.urls.screenshots">
+              <img [src]="screenshot.url" alt="screenshot.title"/>
+            </div>
+          </div> -->
+        </div>
+      
+      </div>
+
+    </div>
+
+  </section>
+</div>

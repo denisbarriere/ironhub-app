@@ -1,4 +1,97 @@
-.project-image img { 
-  object-fit: contain; 
+// Import global color schemes
+@import '../../../styles.scss';
+
+/** 
+ * HERO BANNER
+**/
+// Titles
+.hero-body > .container > .title,
+.hero-body > .container > .subtitle { color: #fff; }
+
+// Buttons, for mobile especially
+.hero-body .field a { margin-bottom: .2rem; }
+
+
+/**
+ * LEFT PANEL
+**/
+// Title
+.ironhub-project-tagline { font-size: 2.5rem; }
+
+
+/**
+ * ACTION ITEMS 
+**/
+.action {
+  color: $primary-default-color;
+}
+
+.fa-arrow-left,
+.fa-pencil,
+.fa-trash-o { 
+  font-size: 1rem;
+  color: #fff;
+}
+
+.action:hover {
+  color: $primary-default-color-hover;
+}
+
+
+/**
+ * RIGHT PANEL
+**/
+.project-image-panel {
   background-color: whitesmoke;
+}
+
+// Progress bar color
+.progress-percent { 
+  font-weight: bold;
+  width: 10%;
+  margin-right: 1rem;
+ }
+
+ progress { 
+   margin-bottom: .2rem;
+   width: 82%;
+   display: inline-block;
+ }
+
+ .project-hashtags {
+  margin: 0;
+  margin-top: 1rem;
+  list-style: none;
+ }
+
+ .project-hashtags li {
+   float: left;
+   margin: 0;
+   margin-left: .4rem;
+ }
+.project-hashtags li:first-child { margin-left: 0; }
+
+
+/**
+ * MEDIA QUERIES
+**/
+@media only screen and (min-width: 768px) {
+  .project-image-panel {
+    margin-left: 1rem;
+    margin-top: -6rem;
+  }
+
+  .action {
+    display: block;
+  }
+}
+
+.project-image img { 
+  object-fit: contain;
+  background: whitesmoke;
+}
+
+.project-image { 
+  margin: 1rem; 
+  position: relative;
 }

@@ -19,8 +19,10 @@ export class ProjectListItemComponent implements OnInit {
   @Input() project: any;
   @Output() onProjectDelete = new EventEmitter<string>();
 
+  fullList: boolean = false; // Used by the project-contributors component
   isEditable: boolean; // Used to know if the actions (edit, delete) should be displayed
-  gradiantList: Array<String> = ['grad-from-pink-to-orange','grad-from-purple-to-pink', 'grad-from-blue-to-dark-blue','grad-from-light-blue-to-blue', 'grad-from-green-to-dark-green', 'red', 'purple'];
+  absolutePosition: boolean = true; // Used for positioning the tag component
+  gradiantList: Array<String> = ['grad-from-pink-to-orange','grad-from-purple-to-pink', 'grad-from-red-to-pink'];
   noImageBgColor: String = this.getRandomGradiant(); // Get a random gradiant when no project images are found
 
   constructor(
@@ -43,7 +45,7 @@ export class ProjectListItemComponent implements OnInit {
     }
   }
 
-// Get a random gradiant from a list of gradiant
+  // Get a random gradiant from a list of gradiant
   getRandomGradiant() { 
     let randomIndex = Math.floor(Math.random() * this.gradiantList.length);
     return this.gradiantList[randomIndex];

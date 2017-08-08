@@ -5,6 +5,7 @@
 .project-image img { 
   object-fit: contain; 
   background-color: whitesmoke;
+  padding: 1rem;
 }
 
 .no-project-image {
@@ -23,72 +24,14 @@
   color: #fff;
 }
 
-/* Background colors randomly used when no project image is set */
-.grad-from-pink-to-orange {
-  background: #fd4289; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #fd4289, #ff9c00); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #fd4289, #ff9c00); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #fd4289, #ff9c00); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #fd4289, #ff9c00); /* Standard syntax */
-}
-
-.grad-from-purple-to-pink {
-  background: #ae5abc; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #ae5abc, #f72199); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #ae5abc, #f72199); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #ae5abc, #f72199); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #ae5abc, #f72199); /* Standard syntax */
-}
-
-.grad-from-blue-to-dark-blue {
-  background: #00d3dc; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #00d3dc, #1d5e8f); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #00d3dc, #1d5e8f); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #00d3dc, #1d5e8f); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #00d3dc, #1d5e8f); /* Standard syntax */
-}
-
-.grad-from-light-blue-to-blue {
-  background: #00d3dc; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #00d3dc, #00a3ef); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #00d3dc, #00a3ef); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #00d3dc, #00a3ef); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #00d3dc, #00a3ef); /* Standard syntax */
-}
-
-.grad-from-green-to-dark-green {
-  background: #fdf431; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #fdf431, #88b211); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #fdf431, #88b211); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #fdf431, #88b211); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #fdf431, #88b211); /* Standard syntax */
-}
-
-.purple {
-  background-color: #a8afff
-}
-
-.red {
-  background-color: #ff0061;
-}
-/* End: Background colors randomly used when no project image is set */
-
 .card { 
   transition: all .5s ease-in-out;
   border-radius: .2rem;
-  box-shadow: 2px 5px 3px rgba(0,163,239,.1), 0 0 0 1px rgba(10,10,10,.1);
+  box-shadow: 2px 6px 3px rgba(0,163,239,.1), 0 0 0 1px rgba(10,10,10,.1);
   position: relative;
   opacity: 1;
   backface-visibility: hidden;
 }
-
-// .card:hover {
-//   opacity: 0.3;
-// }
-
-// .card:hover .project-overlay {
-//   opacity: 1;
-// }
 
 // Used to position tags
 .card-image { position: relative; }
@@ -107,7 +50,7 @@
   width: 100%;
   height: 100%;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.75);
   transition: all 0.5s ease-in-out;
   color: #fff;
 }
