@@ -75,14 +75,14 @@ export class ProjectService {
 
   // PUT update a project
   editProject(project) {
-    return this.http.put(`${this.API_BASE_URL}/projects/${project.id}`, project, this.requestOptions())
+    return this.http.put(`${this.API_BASE_URL}/projects/${project._id}`, project, this.requestOptions())
       .map((res) => res.json())
       .catch(this.handleError);
   }
   
    // PUT add contributors to a project
   addProjectContributors(project, contributors) {
-    return this.http.put(`${this.API_BASE_URL}/projects/${project.id}/contributors`, contributors, this.requestOptions())
+    return this.http.put(`${this.API_BASE_URL}/projects/${project._id}/contributors`, contributors, this.requestOptions())
       .map((res) => res.json())
       .catch(this.handleError);
   }
