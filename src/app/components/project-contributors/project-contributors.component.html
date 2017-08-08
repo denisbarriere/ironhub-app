@@ -1,14 +1,19 @@
 <div class="media">
-  <div *ngFor="let contributor of contributors; let i=index" class="media-left">
-    <figure *ngIf="i < maxNumberOfContributors" class="image">
+
+  <div *ngFor="let contributor of contributors; let i = index" class="media-left">  
+
+    <!-- Display the contributors avatar -->
+    <figure class="image ironhub-contributors">
       <a class="contributor" [routerLink]="['/ironhackers',contributor._id]" [routerLinkActive]="['is-active']">
         <img [src]="contributor.pictureUrl" alt="Image">
       </a>
     </figure> 
+
   </div> <!-- end: media-left -->
 
-  <div *ngIf="contributors.length > maxNumberOfContributors" class="media-content">
-    <p class="subtitle is-6 more-contributors">+{{ contributors.length - maxNumberOfContributors }} more</p>
+  <div *ngIf="!fullList && numberOfContributors  > maxNumberOfContributors" class="media-content">
+    <!-- Only display if the component has to only display the x first contributors -->
+    <p class="subtitle is-6 more-contributors">+{{ numberOfContributors - maxNumberOfContributors }} more</p>
   </div> <!-- end: media-content -->
 
 </div> <!-- end: media -->
