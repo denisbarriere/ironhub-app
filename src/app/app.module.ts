@@ -27,6 +27,7 @@ import { ProjectDetailsComponent } from './components/project-details/project-de
 import { ProjectNewComponent } from './components/project-new/project-new.component';
 import { ProjectContributorsComponent } from './components/project-contributors/project-contributors.component';
 import { ProjectTagsComponent } from './components/project-tags/project-tags.component';
+import { ProjectEditComponent } from './components/project-edit/project-edit.component';
 
 // Pipes
 import { ProjectFilterPipe } from './pipes/project-filter.pipe';
@@ -46,7 +47,8 @@ import { ProjectFilterPipe } from './pipes/project-filter.pipe';
     ProjectNewComponent,
     ProjectContributorsComponent,
     ProjectTagsComponent,
-    ProjectFilterPipe
+    ProjectFilterPipe,
+    ProjectEditComponent
   ],
   imports: [
     BrowserModule,

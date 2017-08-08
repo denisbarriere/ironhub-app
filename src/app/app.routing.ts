@@ -9,6 +9,7 @@ import { IronhackerListComponent } from './components/ironhacker-list/ironhacker
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectNewComponent } from './components/project-new/project-new.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
+import { ProjectEditComponent } from './components/project-edit/project-edit.component';
 
 // Services
 import { SessionService } from './services/session.service';
@@ -22,5 +23,6 @@ export const routes: Routes = [
   { path: 'projects', component: ProjectListComponent, canActivate: [SessionService] },
   { path: 'projects/new', component: ProjectNewComponent, canActivate: [SessionService] },
   { path: 'projects/:id', component: ProjectDetailsComponent, canActivate: [SessionService] },
+  { path: 'projects/:id/edit', component: ProjectEditComponent, canActivate: [SessionService] },
   { path: '**', redirectTo: '' }
 ];
