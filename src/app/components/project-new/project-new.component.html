@@ -1,5 +1,5 @@
-<form class="hero-body" #newProjectForm="ngForm" (ngSubmit)="newProjectSubmit(newProjectForm)"> 
-  <div class="container">
+<form class="hero-body" #projectForm="ngForm" (ngSubmit)="projectSubmit(projectForm)"> 
+  <div class="container is-fluid">
     <div id="new-project" class="columns is-vcentered">
       <div class="column is-8 is-offset-2">
         <h1 class="title">
@@ -24,6 +24,22 @@
             </div>
           </div>
           
+          <!-- Project Tagline -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class="label">Tagline</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <input class="input" type="text" placeholder="Project Tagline" [(ngModel)]="project.tagline" name="tagline">                             
+                </p>
+                <p class="help">displayed on detail page</p>
+              </div>
+            </div>
+          </div>
+
           <!-- Project Short Description -->
           <div class='field is-horizontal'>
             <div class="field-label is-normal">
@@ -178,6 +194,22 @@
             </div>
           </div>
 
+          <!-- Project Hashtags -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class="label">Hashtags</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <input class="input" type="text" placeholder="Project hashtags" [(ngModel)]="project.hashtags" name="hashtags">                             
+                </p>
+                <p class="help">seperated by ,</p>
+              </div>
+            </div>
+          </div>
+
           <!-- Project Screenshots -->
           <!-- <div class='field is-horizontal'>
             <div class="field-label is-normal">
@@ -232,7 +264,7 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <button class="button is-primary is-ironhub" [disabled]="!newProjectForm.valid">
+                  <button class="button is-primary is-ironhub" [disabled]="!projectForm.valid">
                     Submit
                   </button>
                   <a class='button is-link' [routerLink]="['/projects']" [routerLinkActive]="['is-active']">Cancel</a>

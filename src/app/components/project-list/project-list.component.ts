@@ -30,7 +30,7 @@ export class ProjectListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.noImageBgColor = 'grad-pink-orange'
+    // Get the list of projects
     this.project.getProjectList(this.limit, this.offset)
       .subscribe((projects) => {
         this.projects = projects;
