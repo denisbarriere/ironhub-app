@@ -22,7 +22,7 @@ export class ProjectDetailsComponent implements OnInit {
   fullList: boolean = true; // Used by the project-contributors component
   absolutePosition: boolean = false; // Used for positioning the tag component
   gradiantList: Array<String> = ['grad-from-pink-to-orange','grad-from-purple-to-pink', 'grad-from-red-to-pink'];
-  heroBgColor: String = this.getRandomGradiant(); // Get a random gradiant when no project images are found
+  heroBgColorClass: String = this.getRandomGradiant(); // Get a random gradiant when no project images are found
   bootcampProgress: number; // Bootcamp progress in percent, based on which 
 
 
