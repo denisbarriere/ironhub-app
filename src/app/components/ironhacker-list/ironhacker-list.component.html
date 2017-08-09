@@ -1,3 +1,31 @@
-<p>
-  ironhacker-list works!
-</p>
+ <section *ngIf="ironhackers" class="section list">
+  <div class="container is-fluid">
+
+    <div class="list-header">
+      <!-- Number of ironhackers displayed -->
+      <span *ngIf="numberOfIronhackers > 0; else elseBlock">
+        {{ numberOfIronhackers }} ironhacker<span *ngIf="numberOfIronhackers > 1">s</span> found
+      </span>
+    </div>
+  
+    <!-- List of ironhackers found -->
+    <div *ngIf="numberOfIronhackers > 0" class="ironhackers columns is-multiline">
+
+      <!-- Ironhackers grid -->
+      <div *ngFor="let ironhacker of ironhackers" class="column is-one-quarter">
+
+          <!-- Display the current ironhacker -->
+          <app-ironhacker-list-item [ironhacker]="ironhacker"></app-ironhacker-list-item>
+      
+      </div> <!-- end: column  -->
+
+    </div> <!-- end: columns -->
+
+  </div> <!-- end: container -->
+</section> <!-- end: section -->
+
+
+<ng-template #elseBlock>
+  <!-- If no numberOfIronhacker to display -->
+  No ironhacker has been found. Please add a new one or try again later!
+</ng-template>
