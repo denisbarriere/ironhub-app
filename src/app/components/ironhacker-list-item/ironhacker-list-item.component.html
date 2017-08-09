@@ -1,0 +1,23 @@
+<!-- Ironhacker item  -->
+<div *ngIf="ironhacker" class="card">
+  <div class="card-container">
+          
+    <!-- Ironhacker Image -->
+    <div class="card-image">
+      <div class="ironhacker-image" [ngClass]="bootcampBgColorClass">
+        
+      </div>
+    </div>
+    
+    <div class="card-content">
+      <div class="content">
+        
+        <!-- Ironhacker name -->
+        <p class="title is-4">{{ ironhacker.firstName }} {{ ironhacker.lastName }}</p>
+
+      </div> <!-- end: content -->
+
+    </div> <!-- end: card-content -->
+  </div> <!-- end: card-container -->
+
+</div> <!-- end: card -->

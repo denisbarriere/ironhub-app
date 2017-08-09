@@ -21,6 +21,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { IronhackerListComponent } from './components/ironhacker-list/ironhacker-list.component';
+import { IronhackerListItemComponent } from './components/ironhacker-list-item/ironhacker-list-item.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectListItemComponent } from './components/project-list-item/project-list-item.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
@@ -48,7 +49,8 @@ import { ProjectFilterPipe } from './pipes/project-filter.pipe';
     ProjectContributorsComponent,
     ProjectTagsComponent,
     ProjectFilterPipe,
-    ProjectEditComponent
+    ProjectEditComponent,
+    IronhackerListItemComponent
   ],
   imports: [
     BrowserModule,
