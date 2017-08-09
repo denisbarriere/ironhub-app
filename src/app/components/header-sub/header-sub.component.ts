@@ -11,7 +11,7 @@ import { SessionService } from '../../services/session.service';
 })
 export class HeaderSubComponent implements OnInit {
 
-  bootcampLogo = "/assets/images/course-blue.png";
+  bootcampLogo = "./assets/images/course-blue.png";
 
   constructor(
     // Dependency injections

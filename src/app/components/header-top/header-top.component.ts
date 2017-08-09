@@ -11,7 +11,7 @@ import { SessionService } from '../../services/session.service';
 })
 export class HeaderTopComponent implements OnInit {
 
-  logoFullPath = '/assets/images/ironhub-logo.png'
+  logoFullPath = './assets/images/ironhub-logo.png'
 
   constructor(
     // Dependency injections

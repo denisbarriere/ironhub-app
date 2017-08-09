@@ -76,8 +76,10 @@
  * MEDIA QUERIES
 **/
 @media only screen and (min-width: 768px) {
+  .project-info-panel {
+    padding-right: 2.5rem;    
+  }
   .project-image-panel {
-    margin-left: 1rem;
     margin-top: -6rem;
   }
 

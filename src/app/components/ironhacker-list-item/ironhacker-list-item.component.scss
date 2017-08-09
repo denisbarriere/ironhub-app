@@ -1,1 +1,35 @@
+/**
+ * PROFILE IMAGE SECTION
+**/
+// Background
 .web-dev-full-time { background-color: #c6ddec; }
+
+// Profile image
+.ironhacker-image {
+  text-align: center;
+}
+.ironhacker-image img {
+  object-fit: cover;
+  width: 10rem;
+  height:10rem;
+  border-radius: 50%;
+  border: .2rem solid #c6ddec;
+  margin: 3rem auto 0 auto;
+}
+
+// If no image
+.no-ironhacker-image {
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  padding-top: 75%;
+}
+.no-ironhacker-image__name {
+  position: absolute;
+  top: calc(50% - 1.6rem);
+  width: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #fff;
+}

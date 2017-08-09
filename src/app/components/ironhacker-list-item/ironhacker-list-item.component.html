@@ -4,9 +4,16 @@
           
     <!-- Ironhacker Image -->
     <div class="card-image">
-      <div class="ironhacker-image" [ngClass]="bootcampBgColorClass">
-        
-      </div>
+      <figure *ngIf="ironhacker.pictureUrl; else elseBlock" class="image is-4by3 ironhacker-image" [ngClass]="bootcampBgColorClass">
+        <img [src]="ironhacker.pictureUrl" [alt]="ironhacker.firstName" />
+      </figure>
+
+      <!-- If no image to display -->
+      <ng-template #elseBlock>
+        <div class="no-ironhacker-image" [ngClass]="bootcampBgColorClass">
+          <h2 class="no-ironhacker-image__name">{{ ironhacker.firstName }} {{ ironhacker.lastName }}</h2>
+        </div>
+      </ng-template>
     </div>
     
     <div class="card-content">
