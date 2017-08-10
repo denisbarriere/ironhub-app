@@ -33,9 +33,6 @@
         <a *ngIf="this.session.isAuthenticated" class="navbar-item" [routerLink]="['/profile']">
           Profile
         </a>
-        <a *ngIf="!this.session.isAuthenticated" class="navbar-item" [routerLink]="['/signup']">
-          Sign up
-        </a>
         <div class="navbar-item">
           <div class="field is-grouped">
             <p *ngIf="this.session.isAuthenticated" class="control">

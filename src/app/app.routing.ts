@@ -18,7 +18,7 @@ import { SessionService } from './services/session.service';
 export const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [SessionService] },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  // { path: 'signup', component: SignupComponent },
   { path: 'ironhackers', component: IronhackerListComponent, canActivate: [SessionService] },
   { path: 'ironhackers/:id', component: IronhackerDetailsComponent, canActivate: [SessionService] },
   { path: 'projects', component: ProjectListComponent, canActivate: [SessionService] },
