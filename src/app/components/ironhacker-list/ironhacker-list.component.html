@@ -1,21 +1,89 @@
  <section *ngIf="ironhackers" class="section list">
   <div class="container is-fluid">
 
-    <div class="list-header">
-      <!-- Number of ironhackers displayed -->
-      <span *ngIf="numberOfIronhackers > 0; else elseBlock">
-        {{ numberOfIronhackers }} ironhacker<span *ngIf="numberOfIronhackers > 1">s</span> found
-      </span>
-    </div>
+    <!-- Tools to filter the project list -->
+    <nav class="level" *ngIf="numberOfIronhackers > 0; else elseBlock">
+      <!-- Left side -->
+      <div class="level-left">
+        <div class="level-item">
+
+          <!-- Number of ironhackers displayed -->
+          <p class="subtitle is-5">
+            {{ numberOfIronhackers }} ironhacker<span *ngIf="numberOfIronhackers > 1">s</span>
+          </p>
+        </div>
+
+        <!-- Search Pipe -->
+        <div class="level-item">
+          <div class="field has-addons">
+            <p class="control has-icons-left">
+              <input id="project-search" class="input" type="text" placeholder="Find an ironhacker" [(ngModel)]="searchKeywords" />                             
+              <span class="icon is-small is-left">
+                <i class="fa fa-search"></i>
+              </span>
+            </p>
+            <!-- <p class="control">
+              <button class="button">
+                Search
+              </button>
+            </p> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side -->
+      <div class="level-right">
+        <!-- Filters -->
+        <!-- Filter by program -->
+        <div class="field-body  is-grouped">
+          <div class="field-label is-normal is-grouped">
+            <label class="label">Filters</label>
+          </div>  
+          <div class="field is-normal">
+            <div class="control">
+              <div class="select">
+                <select [(ngModel)]='bootcamp'>
+                  <option selected value='default'>Program</option>        
+                    <option *ngFor="let program of programs">
+                      {{ program }}         
+                  </option>       
+                </select>
+              </div>
+            </div>
+          </div> 
+
+          <!-- Filter by campus -->
+          <div class="field-body is-grouped">
+            <div class="field is-normal">
+              <div class="control">
+                <div class="select">
+                  <select [(ngModel)]='campus'>
+                    <option selected value='default'>Campus</option>        
+                    <option *ngFor="let campus of campuses">
+                      {{ campus }}
+                    </option>              
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </nav>
+
+    <ng-template #elseBlock>
+      <!-- If no numberOfIronhacker to display -->
+      No ironhacker has been found. Please add a new one or try again later!
+    </ng-template>
   
     <!-- List of ironhackers found -->
     <div *ngIf="numberOfIronhackers > 0" class="ironhackers columns is-multiline">
 
       <!-- Ironhackers grid -->
-      <div *ngFor="let ironhacker of ironhackers" class="column is-one-quarter">
+      <div *ngFor="let ironhacker of ironhackers | projectFilter:'firstName':searchKeywords | bootcampFilter:bootcamp  | campusFilter:campus" class="column is-one-quarter">
 
-          <!-- Display the current ironhacker -->
-          <app-ironhacker-list-item [ironhacker]="ironhacker"></app-ironhacker-list-item>
+        <!-- Display the current ironhacker -->
+        <app-ironhacker-list-item [ironhacker]="ironhacker"></app-ironhacker-list-item>
       
       </div> <!-- end: column  -->
 
@@ -23,9 +91,3 @@
 
   </div> <!-- end: container -->
 </section> <!-- end: section -->
-
-
-<ng-template #elseBlock>
-  <!-- If no numberOfIronhacker to display -->
-  No ironhacker has been found. Please add a new one or try again later!
-</ng-template>

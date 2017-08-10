@@ -7,6 +7,11 @@ export const environment = {
   production: false,
 
   // IRONHUB API URL
-  API_BASE_URL: 'http://localhost:3000/api/v1.0'
+  API_BASE_URL: 'http://localhost:3000/api/v1',
 
+  // Ironhack campuses
+  CAMPUSES: ['Barcelona','Madrid','Mexico','Miami','Paris'],
+
+  // Ironhack programs
+  PROGRAMS: ['Web Development Bootcamp','UX/UI Design Bootcamp','Web Development Part-Time','UX/UI Design Part-Time']
 };

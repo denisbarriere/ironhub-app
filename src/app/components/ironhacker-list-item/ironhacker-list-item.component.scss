@@ -1,3 +1,6 @@
+// Import global color schemes
+@import '../../../styles.scss';
+
 /**
  * PROFILE IMAGE SECTION
 **/
@@ -7,7 +10,6 @@
 // Profile image
 .ironhacker-image {
   text-align: center;
-  background-color: whitesmoke;
 }
 .ironhacker-image img {
   object-fit: cover;
@@ -15,7 +17,8 @@
   height:10rem;
   border-radius: 50%;
   border: .2rem solid #fff;
-  margin: 3rem auto 0 auto;
+  margin: 1rem auto 0 auto;
+  background-color: #fff;
 }
 
 // If no image
@@ -34,3 +37,13 @@
   font-size: 1.6rem;
   color: #fff;
 }
+
+// Bio
+.bio {
+  max-height: 4.6875rem;
+  min-height: 4.6875rem;
+}
+
+// Actions
+.card-footer-item:hover { background-color: $primary-default-color; }
+.card-footer-item:hover a { color: #fff }

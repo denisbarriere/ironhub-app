@@ -5,11 +5,11 @@
 $primary-default-color: #00a3ef;
 $primary-default-color-hover: #1d5e8f;
 
-// UI/UX 
-$uiux-btn-color: #d49d05;
-
-// Web Dev
-$web-dev-btn-color: #43a3e6;
+// Buttons and tags
+$web-dev-btn-color: #43a3e6; // Web Dev
+$web-dev-part-time-btn-color: #e64963; // Web Dev Part Time
+$uiux-btn-color: #fffbc7; // UI/UX 
+$uiux-part-time-btn-color: #23c7e0; // UI/UX Part Time
 
 a { color: $primary-default-color; }
 a:hover,
@@ -97,3 +97,14 @@ $text-default-color: #666666;
   background: linear-gradient(to bottom right, #ff0061, #ff65d2); /* Standard syntax */
 }
 /* End: Background colors randomly used when no project image is set */
+
+// Ironhacker / Program tags
+.is-web-dev { background-color: $web-dev-btn-color; color: white; }
+.is-uiux { background-color: $uiux-btn-color; color: #000; }
+.is-web-dev-part-time { background-color: $web-dev-part-time-btn-color; color: white; }
+.is-uiux-part-time { background-color: $uiux-part-time-btn-color; color: #fff; }
+
+// General layout
+.section.list {
+  padding-top: 2rem;
+}

@@ -27,11 +27,14 @@ import { ProjectListItemComponent } from './components/project-list-item/project
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { ProjectNewComponent } from './components/project-new/project-new.component';
 import { ProjectContributorsComponent } from './components/project-contributors/project-contributors.component';
-import { ProjectTagsComponent } from './components/project-tags/project-tags.component';
+import { TagsComponent } from './components/tags/tags.component';
 import { ProjectEditComponent } from './components/project-edit/project-edit.component';
 
 // Pipes
 import { ProjectFilterPipe } from './pipes/project-filter.pipe';
+import { BootcampFilterPipe } from './pipes/bootcamp-filter.pipe';
+import { CampusFilterPipe } from './pipes/campus-filter.pipe';
+import { IronhackerDetailsComponent } from './components/ironhacker-details/ironhacker-details.component';
 
 @NgModule({
   declarations: [
@@ -47,10 +50,13 @@ import { ProjectFilterPipe } from './pipes/project-filter.pipe';
     ProjectDetailsComponent,
     ProjectNewComponent,
     ProjectContributorsComponent,
-    ProjectTagsComponent,
-    ProjectFilterPipe,
+    TagsComponent,
     ProjectEditComponent,
-    IronhackerListItemComponent
+    IronhackerListItemComponent,
+    ProjectFilterPipe,
+    BootcampFilterPipe,
+    CampusFilterPipe,
+    IronhackerDetailsComponent
   ],
   imports: [
     BrowserModule,

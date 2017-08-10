@@ -1,0 +1,137 @@
+<!-- Once projects loaded -->
+<section *ngIf="ironhacker" class="hero is-medium is-bold" [ngClass]="heroBgColorClass">
+  <div class="hero-body">
+    <div class="container is-fluid">
+      <!-- Ironhacker profile image -->
+      <img *ngIf="ironhacker.pictureUrl" class="ironhacker-image" [src]="ironhacker.pictureUrl" [alt]="ironhacker.firstName" />
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <!-- Ironhacker tags -->
+    <app-tags *ngFor="let bootcamp of ironhacker.studentId.bootcampIds" [item]="bootcamp.program" [absolutePosition]="absolutePosition"></app-tags> 
+  </div>
+</section>
+
+<!-- Project main information -->
+<div *ngIf="ironhacker" class="container is-fluid">
+  
+  <!-- Wait for the API  -->
+  <section class="section" *ngIf="ironhacker">
+
+    <div class="columns">
+      <!-- Top Central panel -->
+      <div class="column is-half is-offset-one-quarter ironhacker-heading">
+
+        <!-- Ironhacker full name -->
+        <h1 *ngIf="ironhacker.firstName && ironhacker.lastName" class="title">
+          {{ ironhacker.firstName }} {{ ironhacker.lastName }}
+        </h1>
+        <!-- Ironhacker email -->
+        <p *ngIf="ironhacker.email">{{ ironhacker.email }}</p>
+        <!-- Social networks -->
+        <div class="ironhacker-socials">
+          <!-- Instagram -->
+          <a *ngIf="ironhacker.socialNetworks.instagram" [href]="ironhacker.socialNetworks.instagram" target="_blank">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+            </span> 
+          </a>
+
+           <!-- Slack -->
+          <a *ngIf="ironhacker.socialNetworks.slack" (mouseover)="over(ironhacker.socialNetworks.slack)" (mouseleave)="leave()" [href]="ironhacker.socialNetworks.slack" target="_blank">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-slack fa-stack-1x fa-inverse"></i>
+            </span> 
+          </a>
+
+           <!-- Skype -->
+          <a *ngIf="ironhacker.socialNetworks.skype" (mouseover)="over(ironhacker.socialNetworks.skype)" (mouseleave)="leave()" [href]="ironhacker.socialNetworks.skype" target="_blank">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-skype fa-stack-1x fa-inverse"></i>
+            </span> 
+          </a>
+
+           <!-- Facebook -->
+           <a *ngIf="ironhacker.socialNetworks.facebook" [href]="ironhacker.socialNetworks.facebook" target="_blank">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span> 
+          </a>
+
+          <!-- Twitter -->
+          <a *ngIf="ironhacker.socialNetworks.twitter" [href]="ironhacker.socialNetworks.twitter" target="_blank">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+            </span> 
+          </a>
+
+          <p [class]="messengerClass">{{ messengerProfile }}</p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- user info displayed in tabs -->
+    <div class="tabs is-centered">
+      <ul>
+        <li [ngClass]="infoTabClass">
+          <a (click)="switchTab('info')">
+            <span class="icon is-small"><i class="fa fa-user-o"></i></span>
+            <span>Info</span>
+          </a>
+        </li>
+        <li [ngClass]="bootcampTabClass">
+          <a (click)="switchTab('bootcamp')">
+            <span class="icon is-small"><i class="fa fa-at"></i></span>
+            <span>Bootcamp</span>
+          </a>
+        </li>
+        <li [ngClass]="proTabClass">
+          <a (click)="switchTab('pro')">
+            <span class="icon is-small"><i class="fa fa-bug"></i></span>
+            <span>Pro</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Info tab -->
+    <div class="columns" [ngClass]="infoTabContent">
+      <div class="column">
+
+        <h2 *ngIf="ironhacker.bio" class="subtitle">
+          <!-- Ironhacker Bio -->
+          <p>{{ ironhacker.bio }}</p>   
+        </h2>
+
+      </div>
+    </div>
+
+    <!-- Bootcamp tab -->
+    <div class="columns" [ngClass]="bootcampTabContent">
+      <div class="column">
+
+        BOOTCAMP
+
+      </div>
+    </div>
+
+    <!-- Pro tab -->
+    <div class="columns" [ngClass]="proTabContent">
+      <div class="column">
+
+        PRO TAB 
+
+      </div>
+    </div>
+
+  </section>
+</div>
+  

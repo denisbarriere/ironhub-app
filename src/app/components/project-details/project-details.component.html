@@ -1,4 +1,4 @@
-
+<!-- Once projects loaded -->
 <section *ngIf="project" class="hero is-medium is-bold" [ngClass]="heroBgColorClass">
   <div class="hero-body">
     <div class="container is-fluid">
@@ -56,10 +56,8 @@
 </section>
 
 <!-- Project main information -->
-<div class="container is-fluid">
-  
-  <!-- Wait for the API  -->
-  <section class="section" *ngIf="project">
+<div *ngIf="project" class="container is-fluid">
+  <section class="section">
 
     <div class="columns">
 
@@ -148,7 +146,7 @@
           </div>
 
           <!-- Project tags -->
-          <app-project-tags *ngIf="project.endOfModuleProject" [endOfModuleProject]="project.endOfModuleProject" [absolutePosition]="absolutePosition"></app-project-tags> 
+          <app-tags *ngIf="project.endOfModuleProject" [item]="project.endOfModuleProject" [absolutePosition]="absolutePosition"></app-tags> 
 
           <div *ngIf="project.hashtags" class="content">
             <!-- Project Hash tags -->

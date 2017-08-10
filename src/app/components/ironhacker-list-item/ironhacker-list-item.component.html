@@ -4,27 +4,44 @@
           
     <!-- Ironhacker Image -->
     <div class="card-image">
-      <figure *ngIf="ironhacker.pictureUrl; else elseBlock" class="image is-4by3 ironhacker-image" [ngClass]="bootcampBgColorClass">
+      <figure *ngIf="ironhacker.pictureUrl" class="image is-4by3 ironhacker-image" [ngClass]="profileBgColorClass">
         <img [src]="ironhacker.pictureUrl" [alt]="ironhacker.firstName" />
       </figure>
 
-      <!-- If no image to display -->
-      <ng-template #elseBlock>
-        <div class="no-ironhacker-image" [ngClass]="bootcampBgColorClass">
-          <h2 class="no-ironhacker-image__name">{{ ironhacker.firstName }} {{ ironhacker.lastName }}</h2>
-        </div>
-      </ng-template>
+      <!-- Ironhacker tags -->
+      <app-tags [item]="ironhacker.studentId.bootcampIds[ironhacker.studentId.bootcampIds.length-1].program" [absolutePosition]="absolutePosition"></app-tags>
+    
     </div>
     
     <div class="card-content">
-      <div class="content">
+      <div class="contentronhacker-image">
         
         <!-- Ironhacker name -->
-        <p class="title is-4">{{ ironhacker.firstName }} {{ ironhacker.lastName }}</p>
+
+        <p *ngIf="ironhacker.firstName && ironhacker.lastName" class="title is-4">{{ ironhacker.firstName }} {{ ironhacker.lastName }}</p>
+        <p *ngIf="ironhacker.bio" class="bio subtitle">{{ ironhacker.bio }}</p>
 
       </div> <!-- end: content -->
 
     </div> <!-- end: card-content -->
+
+    <footer class="card-footer">
+      <p class="card-footer-item">
+        <a [routerLink]="['/ironhackers',ironhacker._id]" [routerLinkActive]="['is-active']">
+          <span>
+            <a [routerLink]="['/ironhackers',ironhacker._id]" [routerLinkActive]="['is-active']">Profile</a>
+          </span>
+        </a>
+      </p>
+      <p class="card-footer-item">
+        <a [routerLink]="['/projects']" [queryParams]="{ ironhacker : ironhacker._id }" [routerLinkActive]="['is-active']">
+          <span>
+            <a [routerLink]="['/projects']" [queryParams]="{ ironhacker : ironhacker._id }" [routerLinkActive]="['is-active']">Projects</a>
+          </span>
+        </a>
+      </p>
+    </footer>
+  
   </div> <!-- end: card-container -->
 
 </div> <!-- end: card -->

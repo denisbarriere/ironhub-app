@@ -1,0 +1,61 @@
+// Import global color schemes
+@import '../../../styles.scss';
+
+/**
+ * HERO
+**/
+.hero-body { position: relative; }
+.ironhacker-image {
+  object-fit: cover;
+  width: 14rem;
+  height:14rem;
+  border-radius: 50%;
+  border: .4rem solid #fff;
+  // margin: 0 calc(50% - 5.2rem);
+  // text-align: center;
+  position: absolute;
+  left: calc(50% - 7.2rem);
+  bottom: -8rem;
+  background-color: white;
+}
+
+// Tags
+app-tags { 
+  float: right;
+  margin-right: 1rem;
+  margin-bottom: 1rem;  
+}
+app-tags:first-child { margin-right: 2rem; }
+
+// Ironhacker info
+.ironhacker-heading { 
+  text-align: center;
+}
+
+/**
+ * SOCIAL
+**/
+.ironhacker-socials {
+  margin-top: 1rem;
+  color: $primary-default-color;
+}
+
+// Display and hide messenger infor
+.messenger-off { visibility: hidden; min-height: 1.5rem; }
+.messenger-on { visibility: visible; }
+
+
+/**
+ * TABS
+**/
+.tabs li a { color: $text-default-color; }
+.tabs li a:hover { border-bottom-color: $primary-default-color; }
+
+.tabs li.is-active a { 
+  color: $primary-default-color; 
+  border-bottom-color: $primary-default-color;
+}
+
+// Tab content visibility
+.is-visible { display: block }
+.is-hidden { display: none; }

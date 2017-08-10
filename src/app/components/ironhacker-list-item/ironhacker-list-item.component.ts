@@ -14,8 +14,10 @@ export class IronhackerListItemComponent implements OnInit {
 
   @Input() ironhacker: any; // Retrive the ironhacker information from the parent component
 
+  absolutePosition: boolean = true; // Used for positioning the tag component
   bootcampBgColors: Array<String> = ['web-dev-full-time','web-dev-part-time', 'uxui-design-full-time','uxui-design-part-time',''];
-  noImageBgColorClass: String = this.getProgram(); // Get the last program the ironhacker attended
+  gradiantList: Array<String> = ['grad-from-pink-to-orange','grad-from-purple-to-pink', 'grad-from-red-to-pink'];
+  profileBgColorClass: String = this.getRandomGradiant(); // Get a random gradiant when no project images are found
 
   constructor(
     // Dependency injections
@@ -24,16 +26,11 @@ export class IronhackerListItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log("ironhacker",this.ironhacker);    
   }
 
   // Get a random gradiant from a list of gradiant
-  getProgram() { 
-    // console.log(this.ironhacker.bootcampIds[this.ironhacker.bootcampIds.length-1].program);
-  
-    // let index = Math.floor(Math.random() * this.bootcampBgColors.length);
-    return this.bootcampBgColors[0];
+  getRandomGradiant() { 
+    let randomIndex = Math.floor(Math.random() * this.gradiantList.length);
+    return this.gradiantList[randomIndex];
   }
-
-
 }

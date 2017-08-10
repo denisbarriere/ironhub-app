@@ -69,6 +69,8 @@ export class ProjectDetailsComponent implements OnInit {
             case 'Module 3':
               this.bootcampProgress = 100;
               break;
+            default: 
+              this.bootcampProgress = 0;
           }
         }
       });
@@ -95,7 +97,4 @@ export class ProjectDetailsComponent implements OnInit {
     let randomIndex = Math.floor(Math.random() * this.gradiantList.length);
     return this.gradiantList[randomIndex];
   }
-
-  
-
 }
