@@ -1,0 +1,4 @@
+<!-- The tag color is different depending on the item -->
+<span *ngIf="item" class="tag is-rounded" [ngClass]="[itemTypeClass, positionClass]">
+  {{ item }}
+</span>

@@ -1,0 +1,9 @@
+// Import global color schemes
+@import '../../../styles.scss';
+
+ .tag-absolute { 
+   position: absolute;
+   z-index: 1;
+   bottom: 1rem;
+   right: 1rem;
+ }
