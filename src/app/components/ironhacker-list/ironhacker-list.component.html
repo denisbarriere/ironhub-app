@@ -1,7 +1,7 @@
  <section *ngIf="ironhackers" class="section list">
   <div class="container is-fluid">
 
-    <!-- Tools to filter the project list -->
+    <!-- Tools to filter the ironhackers list -->
     <nav class="level" *ngIf="numberOfIronhackers > 0; else elseBlock">
       <!-- Left side -->
       <div class="level-left">
@@ -15,18 +15,13 @@
 
         <!-- Search Pipe -->
         <div class="level-item">
-          <div class="field has-addons">
+          <div class="field">
             <p class="control has-icons-left">
-              <input id="project-search" class="input" type="text" placeholder="Find an ironhacker" [(ngModel)]="searchKeywords" />                             
+              <input class="input" type="text" placeholder="Find an ironhacker" [(ngModel)]="searchKeywords" />                             
               <span class="icon is-small is-left">
                 <i class="fa fa-search"></i>
               </span>
             </p>
-            <!-- <p class="control">
-              <button class="button">
-                Search
-              </button>
-            </p> -->
           </div>
         </div>
       </div>

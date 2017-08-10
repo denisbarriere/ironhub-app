@@ -1,90 +1,59 @@
  <section *ngIf="projects" class="section list">
   <div class="container is-fluid">
 
-    <!-- Tools to filter the project list -->
-    <div class="toolBar">
+   <!-- Tools to filter the project list -->
+    <nav class="level" *ngIf="numberOfProjects > 0; else elseBlock">
+      <!-- Left side -->
+      <div class="level-left">
+        <div class="level-item">
 
-      <!-- Search Pipe -->
-      <div class="field is-horizontal">
-        <div class="field-body">
-          <div class="field is-normal">
+          <!-- Number of projects displayed -->
+          <p class="subtitle is-5">
+            {{ numberOfProjects }} project<span *ngIf="numberOfIronhackers > 1">s</span>
+          </p>
+        </div>
+
+        <!-- Search Pipe -->
+        <div class="level-item">
+          <div class="field has-addons">
             <p class="control has-icons-left">
-              <input id="project-search" class="input" type="text" placeholder="Project name" name="searchKeywords" [(ngModel)]="searchKeywords" />                             
+              <input id="project-search" class="input" type="text" placeholder="Find a project" [(ngModel)]="searchKeywords" />                             
               <span class="icon is-small is-left">
                 <i class="fa fa-search"></i>
-                </span>
+              </span>
             </p>
           </div>
         </div>
-
-        <!-- Grid / List view switcher -->
-        
-        <!-- Filters -->
-        <!-- <div class="field-label is-normal is-grouped is-grouped-right">
-          <label class="label project-filters">Filters</label>
-        </div>  -->
-
-        <!-- Filter by program -->
-        <!-- <div class="field-body  is-grouped is-grouped-right">
-          <div class="field is-normal">
-            <div class="control">
-              <div class="select">
-                <select name='program'>
-                  <option disabled selected value=''>Program</option>       
-                  <option value='Web Development Bootcamp'>Web Development Bootcamp</option>
-                  <option value='UX/UI Design Bootcamp'>UX/UI Design Bootcamp</option>
-                  <option value='Web Development Part-Time'>Web Development Part-Time</option>
-                  <option value='UX/UI Design Part-Time'>UX/UI Design Part-Time</option>                  
-                </select>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Filter by campus -->
-          <!-- <div class="field-body is-grouped is-grouped-right">
-            <div class="field is-normal">
-              <div class="control">
-                <div class="select">
-                  <select name='campus'>
-                    <option disabled selected value=''>Campus</option>       
-                    <option value='Madrid'>Madrid</option>
-                    <option value='Barcelona'>Barcelona</option>
-                    <option value='Miami'>Miami</option>
-                    <option value='Paris'>Paris</option>
-                    <option value='Mexico'>Mexico</option>                  
-                  </select>
-                </div>
-              </div>
-            </div>
-           </div>  
-        </div> -->
       </div>
-    </div>
 
+      <!-- Right side -->
+      <div class="level-right">
+
+        <!-- Add project button -->
+        <a *ngIf="this.session.isAuthenticated" class="button is-outlined is-pulled-right" [routerLink]="['/projects','new']" [routerLinkActive]="['is-active']">
+          <span class="icon is-small">
+            <i class="fa fa-plus"></i>
+          </span>
+          <span>Add Project</span>
+        </a>
+
+      
+      </div>
+    </nav>
+
+    <ng-template #elseBlock>
+      <!-- If no projects to display -->
+      No project has been found. Please add a new one or try again later!
+    </ng-template>
+   
     <!-- LOADING TO IMPLEMENT -->
     <div *ngIf="isLoading" class="loading">Hey I am loading...</div>
-
-    <div class="list-header">
-      <!-- Number of project displayed -->
-      <span *ngIf="numberOfProjects > 0; else elseBlock">
-        {{ numberOfProjects }} project<span *ngIf="numberOfProjects > 1">s</span> found
-      </span>
-    
-      <!-- Add project button -->
-      <a *ngIf="this.session.isAuthenticated" class="button is-outlined is-pulled-right ironhub-button" [routerLink]="['/projects','new']" [routerLinkActive]="['is-active']">
-        <span class="icon is-small">
-          <i class="fa fa-plus"></i>
-        </span>
-        <span>Add Project</span>
-      </a>
-
-    </div>
   
     <!-- List of projects found -->
     <div *ngIf="numberOfProjects > 0" class="projects columns is-multiline">
 
       <!-- Project grid -->
-      <div *ngFor="let project of projects | projectFilter:'name':searchKeywords" class="column is-one-quarter">
+      <div *ngFor="let project of projects | projectFilter:'name':searchKeywords | bootcampFilter:bootcamp  | campusFilter:campus" class="column is-one-quarter">
 
           <!-- Display the current project -->
           <app-project-list-item (onProjectDelete)="deleteProject($event)" [project]="project"></app-project-list-item>
@@ -95,9 +64,3 @@
 
   </div> <!-- end: container -->
 </section> <!-- end: section -->
-
-
-<ng-template #elseBlock>
-  <!-- If no projects to display -->
-  No project has been found. Please add a new one or try again later!
-</ng-template>
