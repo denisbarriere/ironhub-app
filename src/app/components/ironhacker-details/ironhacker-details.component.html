@@ -77,7 +77,6 @@
       </div>
     </div>
 
-
     <!-- user info displayed in tabs -->
     <div class="tabs is-centered">
       <ul>
@@ -106,19 +105,107 @@
     <div class="columns" [ngClass]="infoTabContent">
       <div class="column">
 
-        <h2 *ngIf="ironhacker.bio" class="subtitle">
-          <!-- Ironhacker Bio -->
-          <p>{{ ironhacker.bio }}</p>   
-        </h2>
+         <table *ngIf="ironhacker.bio || ironhacker.nationality || ironhacker.dateOfBirth || ironhacker.phone || ironhacker.address || ironhacker.postCode || ironhacker.city || ironhacker.country; else infoElseBlock" class="table">
+          <tbody>
+            <tr *ngIf="ironhacker.bio">
+              <!-- Ironhacker Bio -->
+              <th>Bio</th>
+              <td>{{ ironhacker.bio }}</td>
+            </tr>
+
+            <tr *ngIf="ironhacker.nationality">
+              <!-- Ironhacker nationality -->
+              <th>Nationality</th>
+              <td>{{ ironhacker.nationality }}</td>
+            </tr>
+
+            <tr *ngIf="ironhacker.dateOfBirth">
+              <!-- Ironhacker date of birth -->
+              <th>Date of birth</th>
+              <td>{{ ironhacker.dateOfBirth | date:'longDate' }}</td>
+            </tr>
+
+            <tr *ngIf="ironhacker.phone">
+              <!-- Ironhacker Phone -->
+              <th>Phone</th>
+              <td>{{ ironhacker.phone }}</td>
+            </tr>
+
+            <tr *ngIf="ironhacker.address || ironhacker.postCode || ironhacker.city">
+              <!-- Ironhacker Address -->
+              <th>Address</th>
+              <td *ngIf="ironhacker.address">
+                <span>{{ ironhacker.address }}</span>
+                <span *ngIf="ironhacker.city">{{ ironhacker.city }}</span>     
+                <span *ngIf="ironhacker.postCode">{{ ironhacker.postCode }}</span>
+                <span *ngIf="ironhacker.country">{{ ironhacker.country }}</span>                
+              </td>    
+            </tr>
+
+          </tbody>
+        </table>
+
+        <ng-template #infoElseBlock>
+           <!-- If no info found for the table -->
+          <p class="title is-4">No information available for this ironhacker :'(</p>
+        </ng-template>
 
       </div>
     </div>
 
     <!-- Bootcamp tab -->
     <div class="columns" [ngClass]="bootcampTabContent">
-      <div class="column">
+      <div class="column" *ngIf="ironhacker.studentId.bootcampIds">
 
-        BOOTCAMP
+        <div *ngFor="let bootcamp of ironhacker.studentId.bootcampIds">
+          <p *ngIf="bootcamp.program" class="title is-4">{{bootcamp.program}}</p>
+          
+          <table class="table">
+            <tbody>
+              <tr *ngIf="bootcamp.program">
+                <!-- Bootcamp program -->
+                <th>Program</th>
+                <td>{{ bootcamp.program }}</td>
+              </tr>
+
+              <tr *ngIf="bootcamp.program">
+                <!-- Bootcamp campus -->
+                <th>Campus</th>
+                <td>{{ bootcamp.campus }}</td>
+              </tr>
+
+              <tr *ngIf="bootcamp.startDate">
+                <!-- Bootcamp start date -->
+                <th>Start Date</th>
+                <td>{{ bootcamp.startDate | date:'longDate' }}</td>
+              </tr>
+
+              <tr *ngIf="bootcamp.endDate">
+                <!-- Bootcamp end date -->
+                <th>End Date</th>
+                <td>{{ bootcamp.endDate | date:'longDate' }}</td>
+              </tr>
+
+              <tr *ngIf="bootcamp.language">
+                <!-- Bootcamp language -->
+                <th>Language</th>
+                <td>{{ bootcamp.language }}</td>
+              </tr>
+
+              <tr *ngIf="bootcamp.cohortPictureUrl">
+                <!-- Bootcamp cohort -->
+                <th>Cohort Picture</th>
+                <td>{{ bootcamp.cohortPictureUrl }}</td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+
+        <ng-template #bootcampElseBlock>
+           <!-- If no info found for the table -->
+          <p class="title is-4">No bootcamp information available for this ironhacker :'(</p>
+        </ng-template>
 
       </div>
     </div>
@@ -127,11 +214,55 @@
     <div class="columns" [ngClass]="proTabContent">
       <div class="column">
 
-        PRO TAB 
+         <table *ngIf="ironhacker.studentId.professionalNetworks; else proElseBlock" class="table">
+          <tbody>
+            <tr *ngIf="ironhacker.studentId.professionalNetworks.dribbble">
+              <!-- Ironhacker Dribbble -->
+              <th>Dribbble</th>
+              <td>{{ ironhacker.studentId.professionalNetworks.dribbble }}</td>
+            </tr>
 
+            <tr *ngIf="ironhacker.studentId.professionalNetworks.gitHub">
+              <!-- Ironhacker GitHub -->
+              <th>GitHub</th>
+              <td>{{ ironhacker.studentId.professionalNetworks.gitHub }}</td>
+            </tr>
+
+            <tr *ngIf="ironhacker.studentId.professionalNetworks.linkedIn">
+              <!-- Ironhacker Linkedin -->
+              <th>LinkedIn</th>
+              <td>{{ ironhacker.studentId.professionalNetworks.linkedIn }}</td>
+            </tr>
+
+            <tr *ngIf="ironhacker.studentId.professionalNetworks.portfolio">
+              <!-- Ironhacker Portefolio -->
+              <th>Portefolio</th>
+              <td>{{ ironhacker.studentId.professionalNetworks.portfolio }}</td>
+            </tr>
+
+            <tr *ngIf="ironhacker.studentId.professionalNetworks.webProjects">
+              <th>Web Projects</th>
+              <td>
+                <table>
+                <tr *ngFor="let webproject of ironhacker.studentId.professionalNetworks.webProjects">
+                <td class="sub-table">
+                  <strong>{{ webproject.title }}</strong><span>: {{ webproject.url }}</span>
+                </td>
+                </tr>
+              </table>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <ng-template #proElseBlock>
+          <!-- If no pro info found for the table -->
+          <p class="title is-4">No professional information available for this ironhacker :'(</p>
+        </ng-template>
       </div>
-    </div>
 
+    </div>
   </section>
 </div>
   
