@@ -19,6 +19,11 @@
   <!-- Wait for the API  -->
   <section class="section" *ngIf="ironhacker">
 
+     <!-- Link to project button -->
+     <a class="button is-outlined is-pulled-right" [routerLink]="['/projects']" [queryParams]="{ ironhacker : ironhacker._id }">
+        See Projects
+      </a>
+
     <div class="columns">
       <!-- Top Central panel -->
       <div class="column is-half is-offset-one-quarter ironhacker-heading">
@@ -105,12 +110,15 @@
     <div class="columns" [ngClass]="infoTabContent">
       <div class="column">
 
-         <table *ngIf="ironhacker.bio || ironhacker.nationality || ironhacker.dateOfBirth || ironhacker.phone || ironhacker.address || ironhacker.postCode || ironhacker.city || ironhacker.country; else infoElseBlock" class="table">
+         <table *ngIf="ironhacker.bioFull || ironhacker.bio || ironhacker.nationality || ironhacker.dateOfBirth || ironhacker.phone || ironhacker.address || ironhacker.postCode || ironhacker.city || ironhacker.country; else infoElseBlock" class="table">
           <tbody>
-            <tr *ngIf="ironhacker.bio">
+            <tr *ngIf="ironhacker.bioFull || ironhacker.bio">
               <!-- Ironhacker Bio -->
               <th>Bio</th>
-              <td>{{ ironhacker.bio }}</td>
+              <td *ngIf="ironhacker.bioFull; else shortBio">{{ ironhacker.bioFull }}</td>
+              <ng-template #shortBio>
+                <td>{{ ironhacker.bio }}</td>
+              </ng-template>
             </tr>
 
             <tr *ngIf="ironhacker.nationality">
@@ -195,7 +203,7 @@
               <tr *ngIf="bootcamp.cohortPictureUrl">
                 <!-- Bootcamp cohort -->
                 <th>Cohort Picture</th>
-                <td>{{ bootcamp.cohortPictureUrl }}</td>
+                <td><a [href]="bootcamp.cohortPictureUrl" target="_blank">{{ bootcamp.cohortPictureUrl }}</a></td>
               </tr>
             
             </tbody>
@@ -219,25 +227,25 @@
             <tr *ngIf="ironhacker.studentId.professionalNetworks.dribbble">
               <!-- Ironhacker Dribbble -->
               <th>Dribbble</th>
-              <td>{{ ironhacker.studentId.professionalNetworks.dribbble }}</td>
+              <td><a [href]="ironhacker.studentId.professionalNetworks.dribbble" target="_blank">{{ ironhacker.studentId.professionalNetworks.dribbble }}</a></td>
             </tr>
 
             <tr *ngIf="ironhacker.studentId.professionalNetworks.gitHub">
               <!-- Ironhacker GitHub -->
               <th>GitHub</th>
-              <td>{{ ironhacker.studentId.professionalNetworks.gitHub }}</td>
+              <td><a [href]="ironhacker.studentId.professionalNetworks.gitHub" target="_blank">{{ ironhacker.studentId.professionalNetworks.gitHub }}</a></td>
             </tr>
 
             <tr *ngIf="ironhacker.studentId.professionalNetworks.linkedIn">
               <!-- Ironhacker Linkedin -->
               <th>LinkedIn</th>
-              <td>{{ ironhacker.studentId.professionalNetworks.linkedIn }}</td>
+              <td><a [href]="ironhacker.studentId.professionalNetworks.linkedIn" target="_blank">{{ ironhacker.studentId.professionalNetworks.linkedIn }}</a></td>
             </tr>
 
             <tr *ngIf="ironhacker.studentId.professionalNetworks.portfolio">
               <!-- Ironhacker Portefolio -->
               <th>Portefolio</th>
-              <td>{{ ironhacker.studentId.professionalNetworks.portfolio }}</td>
+              <td><a [href]="ironhacker.studentId.professionalNetworks.portfolio" target="_blank">{{ ironhacker.studentId.professionalNetworks.portfolio }}</a></td>
             </tr>
 
             <tr *ngIf="ironhacker.studentId.professionalNetworks.webProjects">
@@ -246,7 +254,7 @@
                 <table>
                 <tr *ngFor="let webproject of ironhacker.studentId.professionalNetworks.webProjects">
                 <td class="sub-table">
-                  <strong>{{ webproject.title }}</strong><span>: {{ webproject.url }}</span>
+                  <strong>{{ webproject.title }}</strong><span>: <a [href]="webproject.url" target="_blank">{{ webproject.url }}</a></span>
                 </td>
                 </tr>
               </table>
