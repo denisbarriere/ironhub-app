@@ -9,6 +9,9 @@ import * as _ from 'lodash';
 import { ProjectService } from '../../services/project.service';
 import { SessionService } from '../../services/session.service';
 
+// Environment variables
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
@@ -18,6 +21,10 @@ export class ProjectListComponent implements OnInit {
 
   ironhackerId: String; // Id of the ironhacker projects to display, if found in the query parameters
   searchKeywords: string; // Used to retrieve the keywords to filter the list
+  campuses: Array<String>  = environment.CAMPUSES; // List of bootcamps found in the drop down
+  programs: Array<String>  = environment.PROGRAMS; // List of campuses found in the drop down
+  campus: String = 'default'; // Campus drop down
+  bootcamp: String = 'default'; // Program drop down
   projects = [{}]; // Retrive the projects from the API
   numberOfProjects: number = 0; // Total number of projects
   limit: number = 16; // Number of project loaded

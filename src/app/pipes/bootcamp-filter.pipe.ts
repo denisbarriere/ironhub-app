@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'bootcampFilter'
+  name: 'bootcampFilter',
+  pure: false // To detect changes
 })
 export class BootcampFilterPipe implements PipeTransform {
 
@@ -13,14 +14,11 @@ export class BootcampFilterPipe implements PipeTransform {
     }
 
     // Else, filter the list based on the bootcamp selected
-    let users = value.map(user => {
+    let users = value.filter(user => {
       let bootcamps = user.studentId.bootcampIds.map(item => item.program);
-      if (bootcamps.includes(bootcamp)) { 
-        return user;
-      }
+      return bootcamps.includes(bootcamp);
     });
 
-    console.log(users)
     // Return the filtered list
     return users;
   }

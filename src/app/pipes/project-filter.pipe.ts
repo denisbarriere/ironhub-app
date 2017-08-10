@@ -12,6 +12,8 @@ export class ProjectFilterPipe implements PipeTransform {
     }
 
     const myPattern = new RegExp(searchKeywords, 'i');
-    return value.filter(it => it[field].match(myPattern));
+    const filtered = value.filter(it => it[field].match(myPattern)); 
+    //console.log("Filtered by search", filtered);
+    return filtered;
   }
 }

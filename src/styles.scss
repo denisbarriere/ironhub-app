@@ -67,7 +67,8 @@ a:active { color: $primary-default-color-hover; }
   background-color: $primary-default-color-hover;
 } 
 
-.button.is-ironhub {
+.button.is-ironhub,
+.button.is-primary[disabled] {
   background-color: $primary-default-color;
 } 
 
