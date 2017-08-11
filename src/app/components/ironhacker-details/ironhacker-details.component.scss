@@ -27,6 +27,13 @@ app-tags {
 }
 app-tags:first-child { margin-right: 2rem; }
 
+// See projects
+.ironhub-user-project { 
+  position: absolute;
+  top: 1rem;
+  right: 0;
+ }
+
 // Ironhacker info
 .ironhacker-heading { 
   text-align: center;

@@ -19,10 +19,10 @@
   <!-- Wait for the API  -->
   <section class="section" *ngIf="ironhacker">
 
-     <!-- Link to project button -->
-     <a class="button is-outlined is-pulled-right" [routerLink]="['/projects']" [queryParams]="{ ironhacker : ironhacker._id }">
-        See Projects
-      </a>
+    <!-- Link to project button -->
+    <a class="button is-outlined is-pulled-right ironhub-user-project" [routerLink]="['/projects']" [queryParams]="{ ironhacker : ironhacker._id }">
+      See Projects
+    </a>
 
     <div class="columns">
       <!-- Top Central panel -->
