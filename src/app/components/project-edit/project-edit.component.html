@@ -24,6 +24,22 @@
             </div>
           </div>
           
+          <!-- Project Tagline -->
+          <div class='field is-horizontal'>
+            <div class="field-label is-normal">
+              <label class="label">Tagline</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <input class="input" type="text" placeholder="Project Tagline" [(ngModel)]="project.tagline" name="tagline">                             
+                </p>
+                <p class="help">Max 100 characters, displayed on detail page</p>
+              </div>
+            </div>
+          </div>
+
           <!-- Project Short Description -->
           <div class='field is-horizontal'>
             <div class="field-label is-normal">
@@ -35,7 +51,7 @@
                 <p class="control">
                   <input class="input" type="text" placeholder="Project Short Description" [(ngModel)]="project.shortDescription" name="short-description">                             
                 </p>
-                <p class="help">displayed on listing page</p>
+                <p class="help">Max 100 characters, displayed on listing page</p>
               </div>
             </div>
           </div>
@@ -104,7 +120,7 @@
             <div class="field-body">
               <div class="field">
                 <p class="control is-expanded has-icons-left">
-                  <input class="input" type="text" placeholder="Product URL" [(ngModel)]="project.urls.productUrl" name="product-url" required>                             
+                  <input class="input" type="text" placeholder="Product URL" [(ngModel)]="project.urls.productUrl" name="product-url">                             
                   <span class="icon is-small is-left">
                     <i class="fa fa-link"></i>
                   </span>

@@ -43,22 +43,27 @@ export class ProjectEditComponent implements OnInit {
   // Function called when the user clicks the submit button
   projectSubmit(form) {
 
-    // Retrieve the new contributors (populated)
-    let newContributors = this.project.contributors;
+    // Update the contributors
+    // if (this.project.contributors) {
+     
+    //   // Retrieve the new contributors (populated)
+    //   let newContributors = this.project.contributors;
     
-    // Reset the contributors
-    this.project.contributors = [];
+    //   // Reset the contributors
+    //   this.project.contributors = [];
 
-    newContributors.forEach(contributor => {
-      this.project.contributors.push(contributor._id)      
-    });
-
+    //   newContributors.forEach(contributor => {
+    //     this.project.contributors.push(contributor._id)      
+    //   });
+    // }
+  
     // Update the project
     this.projectService.editProject(this.project)
       .subscribe(
         (data) => {
-          if(data.status === 201) {
+          if(data.status === 200) {
             form.reset();
+            console.log("all OK");
             this.router.navigate(['/projects']);
           }
       },
