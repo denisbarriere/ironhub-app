@@ -35,7 +35,7 @@
                 <p class="control">
                   <input class="input" type="text" placeholder="Project Tagline" [(ngModel)]="project.tagline" name="tagline">                             
                 </p>
-                <p class="help">displayed on detail page</p>
+                <p class="help">Max 100 characters, displayed on detail page</p>
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@
                 <p class="control">
                   <input class="input" type="text" placeholder="Project Short Description" [(ngModel)]="project.shortDescription" name="short-description">                             
                 </p>
-                <p class="help">displayed on listing page</p>
+                <p class="help">Max 100 characters, displayed on listing page</p>
               </div>
             </div>
           </div>
@@ -114,13 +114,13 @@
           <!-- Project Product URL -->
           <div class='field is-horizontal'>
             <div class="field-label is-normal">
-              <label class="label">Product*</label>
+              <label class="label">Product</label>
             </div>
 
             <div class="field-body">
               <div class="field">
                 <p class="control is-expanded has-icons-left">
-                  <input class="input" type="text" placeholder="Product URL" [(ngModel)]="project.urls.productUrl" name="product-url" required>                             
+                  <input class="input" type="text" placeholder="Product URL" [(ngModel)]="project.urls.productUrl" name="product-url">                             
                   <span class="icon is-small is-left">
                     <i class="fa fa-link"></i>
                   </span>
@@ -195,7 +195,7 @@
           </div>
 
           <!-- Project Hashtags -->
-          <div class='field is-horizontal'>
+          <!-- <div class='field is-horizontal'>
             <div class="field-label is-normal">
               <label class="label">Hashtags</label>
             </div>
@@ -208,7 +208,7 @@
                 <p class="help">seperated by ,</p>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Project Screenshots -->
           <!-- <div class='field is-horizontal'>
