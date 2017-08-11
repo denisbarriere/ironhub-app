@@ -76,7 +76,9 @@ export class ProjectService {
   // PUT update a project
   editProject(project) {
     return this.http.put(`${this.API_BASE_URL}/projects/${project._id}`, project, this.requestOptions())
-      .map((res) => res.json())
+      .map((res) => { 
+        return { status: res.status, res: res.json } 
+      })
       .catch(this.handleError);
   }
   
