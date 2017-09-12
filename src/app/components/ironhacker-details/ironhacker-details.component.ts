@@ -1,7 +1,6 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { DatePipe } from '@angular/common';
 
 // services
 import { IronhackerService } from '../../services/ironhacker.service';

@@ -1,7 +1,7 @@
 // Angular
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { Router, CanActivate } from '@angular/router';
+import { Router } from '@angular/router';
 
 // RxJSs
 import 'rxjs/add/operator/map';

@@ -1,6 +1,6 @@
 //Angular
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 // Javacript libraries
 import * as _ from 'lodash';

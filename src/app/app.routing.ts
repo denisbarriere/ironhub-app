@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 
 // Components
 import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
+// import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { IronhackerListComponent } from './components/ironhacker-list/ironhacker-list.component';
 import { IronhackerDetailsComponent } from './components/ironhacker-details/ironhacker-details.component';

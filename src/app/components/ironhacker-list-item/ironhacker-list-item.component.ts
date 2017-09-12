@@ -1,6 +1,6 @@
 // Angular
 import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 // services
 import { IronhackerService } from '../../services/ironhacker.service';
