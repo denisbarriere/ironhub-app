@@ -25,28 +25,30 @@ export class TagsComponent implements OnInit {
     } 
 
     // Set the right classes based on the items
+    this.itemTypeClass = 'default-tag-bg';
+    
     switch(this.item) {
       case 'Web Development Bootcamp':
-        this.itemTypeClass = 'is-web-dev';
+        // this.itemTypeClass = 'is-web-dev';
         this.item = 'Web Development';
         break;
       case 'UX/UI Design Bootcamp':
-        this.itemTypeClass = 'is-uiux';
+        // this.itemTypeClass = 'is-uiux';
         this.item = 'UX/UI Design';
         break;
       case 'Web Development Part-Time':
-        this.itemTypeClass = 'is-web-dev-part-time';
+        // this.itemTypeClass = 'is-web-dev-part-time';
         this.item = 'Web Dev Part-Time'
         break;
       case 'UX/UI Design Part-Time':
-        this.itemTypeClass = 'is-uiux-part-time';
+        // this.itemTypeClass = 'is-uiux-part-time';
         this.item = 'UX/UI Part-Time';
         break;
       case 'Module 1': case 'Module 2':
-        this.itemTypeClass = 'is-white';
+        // this.itemTypeClass = 'is-white';
         break;
       case 'Module 3':
-        this.itemTypeClass = 'is-warning';
+        // this.itemTypeClass = 'is-warning';
         this.item = 'Final';
         break;
       default: 

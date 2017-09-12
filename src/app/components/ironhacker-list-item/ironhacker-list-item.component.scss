@@ -21,7 +21,7 @@
   background-color: #fff;
 }
 
-// If no image
+// If no image found
 .no-ironhacker-image {
   display: block;
   margin: 0;
@@ -37,6 +37,11 @@
   font-size: 1.6rem;
   color: #fff;
 }
+.no-profile-picture-bg {
+  background-color: #666666;  
+}
+
+
 
 // Bio
 .bio {
