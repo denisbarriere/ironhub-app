@@ -75,7 +75,7 @@
     <div *ngIf="numberOfIronhackers > 0" class="ironhackers columns is-multiline">
 
       <!-- Ironhackers grid -->
-      <div *ngFor="let ironhacker of ironhackers | projectFilter:'firstName':searchKeywords | bootcampFilter:bootcamp  | campusFilter:campus" class="column is-one-quarter">
+      <div *ngFor="let ironhacker of ironhackers | projectFilter:'firstName':searchKeywords | bootcampFilter:bootcamp  | campusFilter:campus" class="column is-6-mobile is-4-tablet is-3-desktop is-2-fullhd">
 
         <!-- Display the current ironhacker -->
         <app-ironhacker-list-item [ironhacker]="ironhacker"></app-ironhacker-list-item>

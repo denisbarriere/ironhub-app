@@ -7,7 +7,8 @@ export const environment = {
   production: false,
 
   // IRONHUB API URL
-  API_BASE_URL: 'http://localhost:3000/api/v1',
+  // API_BASE_URL: 'http://localhost:3000/api/v1',
+  API_BASE_URL: 'https://ironhub-api.herokuapp.com/api/v1',
 
   // Ironhack campuses
   CAMPUSES: ['Barcelona','Madrid','Mexico','Miami','Paris'],
